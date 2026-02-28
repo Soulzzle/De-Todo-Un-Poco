@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productos - De Todo Un Poco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <header class="encabezado">
+    <div class="encabezado-inner">
+      <nav class="menu">
+        <a href="index.html" class="logo-principal">
+          <img src="images/cartel-dtup.png" alt="Logo de De Todo Un Poco">
+        </a>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="index.html#desc-dtup">Quiénes Somos</a></li>
+          <li><a href="#pie-pagina">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="btn-dark-mode">Dark mode</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalogo-header">
+      <div>
+        <h1>Todos Nuestros Productos</h1>
+        <p>Explorá nuestra variedad y encontrá lo mejor para vos.</p>
+      </div>
+    </section>
+
+    <section id="catalogo-completo">
+      <div class="contenedor-ancho-catalogo">
+        <aside class="filtros-sidebar">
+          
+          <div class="filtro-grupo">
+            <h3>Buscar</h3>
+            <div class="busqueda-wrapper">
+              <input type="search" placeholder="Ej: Almendras..." id="busqueda-productos">
+            </div>
+          </div>
+
+          <div class="filtro-grupo">
+            <h3>Categorías</h3>
+            <ul class="lista-filtros categorias-lista">
+              <li class="categoria-item">
+                <a href="#" class="activo">Frutos Secos <span>(25)</span></a>
+              </li>
+              <li class="categoria-item"><a href="#">Sin TACC <span>(18)</span></a></li>
+              <li class="categoria-item"><a href="#">Sin Azúcares <span>(12)</span></a></li>
+              <li class="categoria-item"><a href="#">Reposteria <span>(9)</span></a></li>
+              </ul>
+          </div>
+
+          <div class="filtro-grupo">
+            <h3>Restricción Alimenticia</h3>
+            <div class="opciones-filtros">
+              <label class="control-checkbox">
+                Sin TACC
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+              </label>
+              <label class="control-checkbox">
+                Vegano
+                <input type="checkbox" checked> <span class="control-indicator"></span>
+              </label>
+              <Control-checkbox">
+                Orgánico
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filtro-grupo">
+            <h3>Marca</h3>
+            <div class="opciones-filtros">
+              <label class="control-checkbox">
+                Ceral
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+              </label>
+              <label class="control-checkbox">
+                Natier
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+              </label>
+              <label class="control-checkbox">
+                Nuestra Marca
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filtro-grupo">
+            <h3>Rango de Precio</h3>
+            <div class="precio-slider-wrapper">
+              <div class="precio-inputs">
+                <input type="number" placeholder="Min" id="precio-min">
+                <span>-</span>
+                <input type="number" placeholder="Max" id="precio-max">
+              </div>
+              <input type="range" min="0" max="10000" value="5000" class="slider" id="precio-range">
+            </div>
+          </div>
+
+        </aside>
+      </div>
+      <ul class="grilla-productos">
+        
+        <li>
+          <a href="#" class="producto">
+            <img src="images/producto.png" alt="Producto 1">
+            <h3>Producto 1</h3>
+            <p>Descripción breve del producto 1.</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="producto">
+            <img src="images/producto.png" alt="Producto 2">
+            <h3>Producto 2</h3>
+            <p>Descripción breve del producto 2.</p>
+          </a>
+        </li>
+        
+        </ul>
+    </section>
+  </main>
+  
+  <footer id="pie-pagina">
+    <div class="footer-inner">
+      <div class="menu-footer">
+        <h3>Categorías</h3>
+        <nav>
+          <ul>
+            <li class="item-footer"><a href="index.html">Inicio</a></li>
+            <li class="item-footer"><a href="productos.html">Productos</a></li>
+            <li class="item-footer"><a href="index.html#desc-dtup">Quiénes Somos</a></li>
+            <li class="item-footer"><a href="#pie-pagina">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="contactos">
+        <h3>Contactános</h3>
+        <ul>
+          <li class="item-footer">
+            <img src="images/whap-contacto.png" alt="WhatsApp">
+            <a href="#">WhatsApp</a>
+          </li>
+          <li class="item-footer">
+            <img src="images/tel-contacto.png" alt="Teléfono">
+            <a href="#">Teléfono</a>
+          </li>
+          <li class="item-footer">
+            <img src="images/email-contacto.png" alt="Email">
+            <a href="#">Email</a>
+          </li>
+          <li class="item-footer">
+            <img src="images/mapa-contacto.png" alt="Mapa">
+            <a href="https://maps.app.goo.gl/Je3asyAWKTwyVbgQ8" target="_blank">Irigoyen 386, San Antonio de Areco</a>
+          </li>
+        </ul>
+      </div>
+      <div class="logo-footer">
+        <img src="images/logo.png" alt="Logo de De Todo Un Poco">
+        <p>Copyright © 2026 - De Todo Un Poco - Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
