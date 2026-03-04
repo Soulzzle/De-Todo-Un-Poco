@@ -493,5 +493,137 @@ body h2 {
 }
 
 .contenedor-ancho-catalogo {
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.filtros-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #eeeeee;
+  position: sticky;
+  top: 100px;
+  /* Chequear esto cuando termine la cantidad de categorías" */
+  max-height: calc(100vh - 120px); 
+  overflow-y: auto;
+}
+
+.filtro-grupo {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 25px;
+}
+
+.filtro-grupo:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.filtro-grupo h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.busqueda-wrapper input[type="search"] {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.busqueda-wrapper input[type="search"]:focus {
+  border-color: #1a1a1a; 
+  outline: none;
+}
+
+.opciones-filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.control-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #1a1a1a;
+  user-select: none;
+}
+
+.control-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.control-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #ffffff;
+  border: 2px solid #cccccc;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.control-checkbox:hover input ~ .control-indicator {
+  border-color: #888888;
+}
+
+.control-checkbox input:checked ~ .control-indicator {
+  background-color: #353535;
+  border-color: #353535;
+}
+
+.control-indicator:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.control-checkbox input:checked ~ .control-indicator:after {
+  display: block;
+}
+
+.control-checkbox .control-indicator:after {
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.contenedor-ancho-catalogo .grilla-productos {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
