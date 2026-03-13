@@ -1,6 +1,5 @@
 FUTURAS EDICIONES:
-1- Averiguar bien los productos
-2- Investigar acerca del negocio mayorista.
-3- Preguntar posibles categorías de productos: Sin TACC, Sin azucar, Veganos, Frutos secos, Condimentos(?), Elaborados(?), Orgánicos(?)
-4- ¿En qué fecha abrió DTUP?
-5- Hacer funcional botón dark-mode.
+1- Hacer funcionales los filtros de categorías en productos.html.
+2- Mejorar diseño en CSS para que se vea bien en celular.
+3- Cargar google sheets con todos los productos.
+EXTRA- Hacer funcional botón dark-mode.

@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "nombre": "Producto 1",
+        "descripcion": "Descripción breve del producto 1.",
+        "imagen": "images/producto.png"
+    },
+    {
+        "id": 2,
+        "nombre": "Producto 2",
+        "descripcion": "Descripción breve del producto 2.",
+        "imagen": "images/producto.png"
+    }
+]

@@ -95,6 +95,7 @@ body h2 {
   background-image: url('../images/banner.png');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   height: 600px;
   display: flex;
