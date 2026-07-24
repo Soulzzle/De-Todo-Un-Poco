@@ -25,6 +25,10 @@ async function cargarProductos() {
 
         // Recorremos cada producto que vino del Excel
         productos.forEach(producto => {
+            // LÓGICA DE NEGOCIO: Si no tiene nombre, ignoramos la fila por completo.
+            if (!producto.nombre || producto.nombre.trim() === "") {
+                return;
+            }
 
             // LÓGICA DE NEGOCIO: Si en el Excel dice "No" en disponible, saltamos al siguiente
             if (producto.disponible && producto.disponible.toLowerCase().trim() === "no") {
