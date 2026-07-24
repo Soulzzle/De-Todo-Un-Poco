@@ -39,7 +39,6 @@ async function cargarProductos() {
             const li = document.createElement('li');
 
             // Procesamos campos opcionales del Excel
-            const categoriaBadge = producto.categoria ? `<span class="producto-badge">${producto.categoria}</span>` : '';
             const descripcionHTML = producto.descripcion ? `<p class="producto-descripcion">${producto.descripcion}</p>` : '';
             const precioHTML = producto.precio ? `<p class="producto-precio">$ ${producto.precio}</p>` : '';
 
@@ -52,7 +51,6 @@ async function cargarProductos() {
             li.innerHTML = `
                 <a href="#" class="producto-card">
                     <div class="producto-imagen-wrapper">
-                        ${categoriaBadge}
                         <img src="${rutaImagen}" alt="${producto.nombre}" loading="lazy" onerror="this.onerror=null;this.src='../images/producto.png';">
                     </div>
                     <div class="producto-detalles">

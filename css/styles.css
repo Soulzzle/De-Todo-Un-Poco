@@ -2,7 +2,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body, ul {
+body,
+ul {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
@@ -24,7 +25,7 @@ body h2 {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .encabezado-inner {
@@ -37,24 +38,26 @@ body h2 {
 
 /* --- ESTILO DEL MENÚ --- */
 .menu {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo-principal {
-    width: 150px;
+  width: 150px;
 }
 
 .logo-principal img {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 }
 
 .menu ul {
-  list-style: none; /* Quita los puntos de la lista */
-  display: flex;    /* Para que los links salgan uno al lado del otro */
-  
+  list-style: none;
+  /* Quita los puntos de la lista */
+  display: flex;
+  /* Para que los links salgan uno al lado del otro */
+
 }
 
 .menu li {
@@ -66,7 +69,7 @@ body h2 {
   margin-inline: 2px;
 }
 
-.menu li:hover{
+.menu li:hover {
   background-color: #dbd9d1;
 }
 
@@ -102,7 +105,7 @@ body h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), inset 0 0 0 1000px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -168,6 +171,7 @@ body h2 {
   .grilla-productos {
     grid-template-columns: repeat(1, minmax(200px, 300px));
   }
+
   .producto img {
     width: 100%;
   }
@@ -180,7 +184,7 @@ body h2 {
   height: 100%;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
 }
 
@@ -202,10 +206,10 @@ body h2 {
 
 .producto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.btn-ver-productos{
+.btn-ver-productos {
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
@@ -219,12 +223,13 @@ body h2 {
 
 .btn-ver-productos:hover {
   background-color: #1b2127;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transform: scale(1.05);
 }
 
 #categorias {
-  background-color: #f1ede4; /* El color cremita de fondo de tu imagen */
+  background-color: #f1ede4;
+  /* El color cremita de fondo de tu imagen */
   padding: 60px 20px;
   text-align: center;
 }
@@ -261,13 +266,13 @@ body h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0), 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0), 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
 }
 
 .tarjeta-categoria:hover {
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2), 0 12px 25px rgba(0,0,0,0.15);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2), 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .tarjeta-categoria p {
@@ -318,12 +323,6 @@ body h2 {
   background-color: rgba(255, 255, 255, 0.5);
   transform: scale(1.02);
   max-width: 1270px;
-}
-
-#productos-destacados {
-  text-align: center;
-  scroll-margin-top: var(--header-offset);
-  padding: 40px 100px;
 }
 
 #productos-nuevos {
@@ -468,7 +467,7 @@ body h2 {
   .footer-inner {
     flex-direction: column;
   }
-} 
+}
 
 
 
@@ -515,7 +514,7 @@ body h2 {
   position: sticky;
   top: 100px;
   /* Chequear esto cuando termine la cantidad de categorías" */
-  max-height: calc(100vh - 120px); 
+  max-height: calc(100vh - 120px);
   overflow-y: auto;
 }
 
@@ -551,7 +550,7 @@ body h2 {
 }
 
 .busqueda-wrapper input[type="search"]:focus {
-  border-color: #1a1a1a; 
+  border-color: #1a1a1a;
   outline: none;
 }
 
@@ -592,11 +591,11 @@ body h2 {
   transition: all 0.2s ease;
 }
 
-.control-checkbox:hover input ~ .control-indicator {
+.control-checkbox:hover input~.control-indicator {
   border-color: #888888;
 }
 
-.control-checkbox input:checked ~ .control-indicator {
+.control-checkbox input:checked~.control-indicator {
   background-color: #353535;
   border-color: #353535;
 }
@@ -607,7 +606,7 @@ body h2 {
   display: none;
 }
 
-.control-checkbox input:checked ~ .control-indicator:after {
+.control-checkbox input:checked~.control-indicator:after {
   display: block;
 }
 
@@ -675,21 +674,6 @@ body h2 {
 
 .producto-card:hover .producto-imagen-wrapper img {
   transform: scale(1.07);
-}
-
-.producto-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #f1ede4;
-  color: #1a1a1a;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 9px;
-  border-radius: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .producto-detalles {
