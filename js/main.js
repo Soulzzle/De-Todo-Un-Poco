@@ -7,6 +7,14 @@ const urlGoogleSheet = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQd9-z8x
 const contenedor = document.getElementById('contenedor-productos');
 
 async function cargarProductos() {
+    if (!contenedor) {
+        console.error("No se encontró el ul con id 'contenedor-productos'");
+        return;
+    }
+
+    // Mostramos mensaje de cargando mientras se hace la petición
+    contenedor.innerHTML = '<p class="mensaje-cargando">Cargando productos...</p>';
+
     try {
         // Pedimos los datos a Google Sheets
         const respuesta = await fetch(urlGoogleSheet);
@@ -15,13 +23,8 @@ async function cargarProductos() {
         // Convertimos el texto CSV a una lista de objetos que JavaScript entienda
         const productos = csvToJson(datosCSV);
 
-        // Limpiamos el contenedor por si había algo antes (como texto de "Cargando...")
-        if (contenedor) {
-            contenedor.innerHTML = '';
-        } else {
-            console.error("No se encontró el ul con id 'contenedor-productos'");
-            return;
-        }
+        // Limpiamos el contenedor para insertar las tarjetas de productos
+        contenedor.innerHTML = '';
 
         // Recorremos cada producto que vino del Excel
         productos.forEach(producto => {
