@@ -238,8 +238,10 @@ function renderizarProductos(productos) {
             ? (producto.imagen.startsWith('http') ? producto.imagen : `../images/${producto.imagen}`)
             : '../images/producto.png';
 
+        const idParam = producto.id ? encodeURIComponent(producto.id) : encodeURIComponent(producto.nombre);
+
         li.innerHTML = `
-            <a href="#" class="producto-card">
+            <a href="detalle-producto.html?id=${idParam}" class="producto-card">
                 <div class="producto-imagen-wrapper">
                     ${tagsHTML}
                     <img src="${rutaImagen}" alt="${producto.nombre}" loading="lazy" onerror="this.onerror=null;this.src='../images/producto.png';">
