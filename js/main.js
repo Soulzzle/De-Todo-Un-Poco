@@ -160,6 +160,31 @@ function aplicarFiltros() {
     renderizarProductos(productosFiltrados);
 }
 
+function generarTagsHTML(producto) {
+    let tags = [];
+
+    const esSinTacc = esAfirmativo(producto.sintacc || producto['sin tacc'] || producto.tacc);
+    const esSinAzucar = esAfirmativo(producto.sinazucar || producto['sin azucar'] || producto.azucar);
+    const esVegano = esAfirmativo(producto.vegano || producto.saludable);
+
+    if (esSinTacc) {
+        tags.push(`<span class="tag-badge tag-sintacc">Sin TACC</span>`);
+    }
+
+    if (esSinAzucar) {
+        tags.push(`<span class="tag-badge tag-sinazucar">Sin Azúcar</span>`);
+    }
+
+    if (esVegano) {
+        tags.push(`<span class="tag-badge tag-vegano">Vegano</span>`);
+    }
+
+    if (tags.length > 0) {
+        return `<div class="producto-tags-container">${tags.join('')}</div>`;
+    }
+    return '';
+}
+
 function renderizarProductos(productos) {
     contenedor.innerHTML = '';
 
@@ -173,6 +198,7 @@ function renderizarProductos(productos) {
 
         const descripcionHTML = producto.descripcion ? `<p class="producto-descripcion">${producto.descripcion}</p>` : '';
         const precioHTML = producto.precio ? `<p class="producto-precio">$ ${producto.precio}</p>` : '';
+        const tagsHTML = generarTagsHTML(producto);
 
         const rutaImagen = producto.imagen
             ? (producto.imagen.startsWith('http') ? producto.imagen : `../images/${producto.imagen}`)
@@ -181,6 +207,7 @@ function renderizarProductos(productos) {
         li.innerHTML = `
             <a href="#" class="producto-card">
                 <div class="producto-imagen-wrapper">
+                    ${tagsHTML}
                     <img src="${rutaImagen}" alt="${producto.nombre}" loading="lazy" onerror="this.onerror=null;this.src='../images/producto.png';">
                 </div>
                 <div class="producto-detalles">
