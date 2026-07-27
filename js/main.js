@@ -36,11 +36,40 @@ async function cargarProductos() {
     }
 }
 
+// Leer parámetros de búsqueda y filtros desde la URL (ej: ?busqueda=almendras o ?categoria=Frutos Secos)
+function leerParametrosURL() {
+    const params = new URLSearchParams(window.location.search);
+    const busqueda = params.get('busqueda') || params.get('q') || params.get('buscar');
+    const categoria = params.get('categoria');
+    const clasificacion = params.get('clasificacion');
+
+    if (busqueda) {
+        const busquedaInput = document.getElementById('busqueda-productos');
+        if (busquedaInput) busquedaInput.value = busqueda;
+    }
+
+    if (categoria) {
+        const radio = document.querySelector(`input[name="categoria"][value="${decodeURIComponent(categoria)}"]`);
+        if (radio) {
+            radio.checked = true;
+            categoriaSeleccionada = radio.value;
+        }
+    }
+
+    if (clasificacion) {
+        const checkbox = document.querySelector(`input[name="clasificacion"][value="${decodeURIComponent(clasificacion)}"]`);
+        if (checkbox) {
+            checkbox.checked = true;
+        }
+    }
+}
+
 // Inicializar listeners de interacción para la barra de búsqueda y filtros laterales
 function inicializarFiltros() {
     const busquedaInput = document.getElementById('busqueda-productos');
     if (busquedaInput) {
         busquedaInput.addEventListener('input', aplicarFiltros);
+        busquedaInput.addEventListener('search', aplicarFiltros); // Soporta el botón de limpiar "x" en inputs type="search"
     }
 
     // Listener para clasificaciones (multi-selección)
@@ -62,6 +91,9 @@ function inicializarFiltros() {
             aplicarFiltros();
         });
     });
+
+    // Cargar filtros especificados en los parámetros de la URL
+    leerParametrosURL();
 }
 
 // Función auxiliar para normalizar texto (quitar acentos, pasar a minúsculas)
@@ -110,9 +142,11 @@ function aplicarFiltros() {
         const marcaNorm = normalizarTexto(producto.marca);
         const todoTexto = `${nombreNorm} ${descripcionNorm} ${categoriaProdNorm} ${marcaNorm}`;
 
-        // 1. Filtro por Búsqueda
+        // 1. Filtro por Búsqueda (Búsqueda multi-palabra flexible)
         if (terminoBusqueda !== '') {
-            if (!todoTexto.includes(terminoBusqueda)) {
+            const palabrasBusqueda = terminoBusqueda.split(/\s+/).filter(p => p.length > 0);
+            const coincideTodas = palabrasBusqueda.every(palabra => todoTexto.includes(palabra));
+            if (!coincideTodas) {
                 return false;
             }
         }
