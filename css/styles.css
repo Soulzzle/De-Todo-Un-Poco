@@ -620,6 +620,66 @@ body h2 {
   transform: rotate(45deg);
 }
 
+/* --- ESTILOS RADIO (CATEGORÍAS - SELECCIÓN ÚNICA) --- */
+.control-radio {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #1a1a1a;
+  user-select: none;
+}
+
+.control-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.control-indicator-radio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #ffffff;
+  border: 2px solid #cccccc;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.control-radio:hover input~.control-indicator-radio {
+  border-color: #888888;
+}
+
+.control-radio input:checked~.control-indicator-radio {
+  background-color: #353535;
+  border-color: #353535;
+}
+
+.control-indicator-radio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.control-radio input:checked~.control-indicator-radio:after {
+  display: block;
+}
+
+.control-radio .control-indicator-radio:after {
+  left: 5px;
+  top: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
 .contenedor-ancho-catalogo .grilla-productos {
   flex: 1;
   display: grid;
