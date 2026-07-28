@@ -1,3 +1,48 @@
+/* ==========================================
+   1. VARIABLES & CONFIGURACIÓN GLOBAL
+   ========================================== */
+:root {
+  /* Layout & Spacing */
+  --header-offset: 80px;
+
+  /* Colores Principales (Fácilmente modificables para Dark Mode) */
+  --bg-main: #ffffff;
+  --bg-secondary: #f1ede4;
+  --bg-secondary-hover: #dbd9d1;
+  --bg-card: #ffffff;
+  --bg-card-img: #faf9f6;
+  --bg-sidebar: #ffffff;
+
+  /* Colores de Texto */
+  --text-primary: #1a1a1a;
+  --text-secondary: #1b2127;
+  --text-muted: #666666;
+  --text-light: #ffffff;
+
+  /* Botones y Elementos Interactivos */
+  --btn-primary-bg: #1a1a1a;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #1b2127;
+
+  /* Bordes */
+  --border-color: #eaeaea;
+  --border-color-strong: #1a1a1a;
+  --border-color-subtle: #eeeeee;
+
+  /* Badges / Etiquetas */
+  --tag-sintacc-bg: #ffebee;
+  --tag-sintacc-border: #ffcdd2;
+  --tag-sintacc-text: #c62828;
+
+  --tag-sinazucar-bg: #e3f2fd;
+  --tag-sinazucar-border: #bbdefb;
+  --tag-sinazucar-text: #1565c0;
+
+  --tag-vegano-bg: #e8f5e9;
+  --tag-vegano-border: #c8e6c9;
+  --tag-vegano-text: #2e7d32;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -10,6 +55,8 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
 }
 
 main {
@@ -26,14 +73,14 @@ body h2 {
   font-size: 40px;
   margin: 30px 0px 60px;
   font-family: "Roboto Slab", serif;
+  color: var(--text-primary);
 }
 
-:root {
-  --header-offset: 80px;
-}
-
+/* ==========================================
+   2. ENCABEZADO Y MENÚ DE NAVEGACIÓN
+   ========================================== */
 .encabezado {
-  background-color: #f1ede4;
+  background-color: var(--bg-secondary);
   padding: 10px 20px;
   position: sticky;
   top: 0;
@@ -49,7 +96,6 @@ body h2 {
   margin: 0 auto;
 }
 
-/* --- ESTILO DEL MENÚ --- */
 .menu {
   display: flex;
   align-items: center;
@@ -67,10 +113,7 @@ body h2 {
 
 .menu ul {
   list-style: none;
-  /* Quita los puntos de la lista */
   display: flex;
-  /* Para que los links salgan uno al lado del otro */
-
 }
 
 .menu li {
@@ -83,30 +126,33 @@ body h2 {
 }
 
 .menu li:hover {
-  background-color: #dbd9d1;
+  background-color: var(--bg-secondary-hover);
 }
 
 .menu a {
-  color: #1a1a1a;
+  color: var(--text-primary);
   text-decoration: none;
   padding: 10px 15px;
 }
 
-
 .btn-dark-mode {
   text-decoration: none;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   padding: 10px 20px;
+  border: none;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
 }
 
 .btn-dark-mode:hover {
-  background-color: #1b2127;
+  background-color: var(--btn-primary-hover);
 }
 
+/* ==========================================
+   3. BANNER PRINCIPAL
+   ========================================== */
 .banner {
   background-image: url('../images/banner.png');
   background-size: cover;
@@ -119,7 +165,7 @@ body h2 {
   justify-content: center;
   align-items: center;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
-  color: white;
+  color: var(--text-light);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -133,6 +179,7 @@ body h2 {
   font-size: 25px;
   font-weight: 400;
   margin-bottom: 60px;
+  color: var(--text-light);
 }
 
 .ver-mas {
@@ -140,10 +187,10 @@ body h2 {
   font-size: 20px;
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  color: var(--text-light);
   padding: 20px 40px;
   border-radius: 10px;
-  border: 1px solid rgb(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   font-family: "SN Pro", sans-serif;
   font-weight: 400;
   backdrop-filter: blur(1px);
@@ -158,8 +205,9 @@ body h2 {
   transform: scale(1.05);
 }
 
-/* PRODUCTOS */
-
+/* ==========================================
+   4. SECCIONES DE LA PÁGINA PRINCIPAL
+   ========================================== */
 #productos-destacados {
   text-align: center;
   scroll-margin-top: var(--header-offset);
@@ -226,8 +274,8 @@ body h2 {
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border-radius: 10px;
   margin: 60px auto 30px;
   padding: 20px 40px;
@@ -235,14 +283,14 @@ body h2 {
 }
 
 .btn-ver-productos:hover {
-  background-color: #1b2127;
+  background-color: var(--btn-primary-hover);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transform: scale(1.05);
 }
 
+/* Categorías */
 #categorias {
-  background-color: #f1ede4;
-  /* El color cremita de fondo de tu imagen */
+  background-color: var(--bg-secondary);
   padding: 60px 20px;
   text-align: center;
 }
@@ -270,12 +318,12 @@ body h2 {
 }
 
 .tarjeta-categoria {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   width: 100%;
   padding: 40px 20px;
   border-radius: 10px;
   text-decoration: none;
-  color: #1a1a1a;
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -290,13 +338,13 @@ body h2 {
 
 .tarjeta-categoria p {
   margin: 0;
-  color: #1b2127;
+  color: var(--text-secondary);
   font-weight: 350;
   font-size: 15px;
 }
 
 .icono-fondo-categoria {
-  background-color: #f1ede4;
+  background-color: var(--bg-secondary);
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -323,8 +371,8 @@ body h2 {
   box-sizing: border-box;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid #1a1a1a;
-  color: #1a1a1a;
+  border: 1px solid var(--border-color-strong);
+  color: var(--text-primary);
   border-radius: 10px;
   margin: 60px auto 30px;
   padding: 20px 40px;
@@ -344,11 +392,12 @@ body h2 {
   padding: 40px 100px;
 }
 
+/* Quiénes somos */
 #desc-dtup {
   scroll-margin-top: var(--header-offset);
   padding: 40px 80px;
   text-align: center;
-  background-color: #f1ede4;
+  background-color: var(--bg-secondary);
 }
 
 #desc-dtup-inner {
@@ -358,7 +407,7 @@ body h2 {
 
 #desc-dtup-inner p {
   margin: 0 auto 0;
-  color: #1b2127;
+  color: var(--text-secondary);
 }
 
 .lista-beneficios {
@@ -370,29 +419,30 @@ body h2 {
 
 .lista-beneficios li {
   margin-bottom: 10px;
-  color: #1b2127;
+  color: var(--text-secondary);
 }
 
 .separador {
-  background-color: #f1ede4;
+  background-color: var(--bg-secondary);
 }
 
 .separador div {
   height: 1px;
-  background-color: #1a1a1a;
+  background-color: var(--border-color-strong);
   max-width: 1200px;
   margin: 0 auto;
 }
 
-
-
+/* ==========================================
+   5. PIE DE PÁGINA (FOOTER)
+   ========================================== */
 #pie-pagina {
   scroll-margin-top: var(--header-offset);
   display: flex;
   flex-direction: column;
   gap: 12px;
   justify-content: center;
-  background-color: #f1ede4;
+  background-color: var(--bg-secondary);
   padding: 40px 80px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -409,7 +459,7 @@ body h2 {
 
 .menu-footer a {
   text-decoration: none;
-  color: #1b2127;
+  color: var(--text-secondary);
 }
 
 .menu-footer ul {
@@ -446,7 +496,7 @@ body h2 {
 
 .item-footer a {
   text-decoration: none;
-  color: #1b2127;
+  color: var(--text-secondary);
   margin-top: 5px;
   font-weight: 350;
 }
@@ -468,7 +518,7 @@ body h2 {
   font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: 400;
-  color: #1b2127;
+  color: var(--text-secondary);
 }
 
 .logo-footer img {
@@ -482,14 +532,13 @@ body h2 {
   }
 }
 
-
-
-/* PASO A PRODUCTOS.HTML A PARTIR DE ACÄ */
-
+/* ==========================================
+   6. PÁGINA DE PRODUCTOS (PRODUCTOS.HTML)
+   ========================================== */
 .catalogo-header {
   padding: 20px 80px;
   text-align: center;
-  background-color: #f1ede4;
+  background-color: var(--bg-secondary);
 }
 
 .catalogo-header h1 {
@@ -499,7 +548,7 @@ body h2 {
 
 .catalogo-header p {
   font-size: 1.2rem;
-  color: #1b2127;
+  color: var(--text-secondary);
 }
 
 #catalogo-completo {
@@ -520,20 +569,19 @@ body h2 {
 .filtros-sidebar {
   width: 280px;
   flex-shrink: 0;
-  background-color: white;
+  background-color: var(--bg-sidebar);
   padding: 30px;
   border-radius: 10px;
-  border: 1px solid #eeeeee;
+  border: 1px solid var(--border-color-subtle);
   position: sticky;
   top: 100px;
-  /* Chequear esto cuando termine la cantidad de categorías" */
   max-height: calc(100vh - 120px);
   overflow-y: auto;
 }
 
 .filtro-grupo {
   margin-bottom: 30px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid var(--border-color-subtle);
   padding-bottom: 25px;
 }
 
@@ -546,7 +594,7 @@ body h2 {
 .filtro-grupo h3 {
   font-family: "Roboto", sans-serif;
   font-size: 1.1rem;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0 0 15px 0;
   font-weight: 700;
 }
@@ -560,10 +608,12 @@ body h2 {
   font-size: 14px;
   box-sizing: border-box;
   transition: border-color 0.2s;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
 }
 
 .busqueda-wrapper input[type="search"]:focus {
-  border-color: #1a1a1a;
+  border-color: var(--border-color-strong);
   outline: none;
 }
 
@@ -580,7 +630,7 @@ body h2 {
   cursor: pointer;
   font-family: "Roboto", sans-serif;
   font-size: 15px;
-  color: #1a1a1a;
+  color: var(--text-primary);
   user-select: none;
 }
 
@@ -598,7 +648,7 @@ body h2 {
   left: 0;
   height: 16px;
   width: 16px;
-  background-color: #ffffff;
+  background-color: var(--bg-main);
   border: 2px solid #cccccc;
   border-radius: 4px;
   transition: all 0.2s ease;
@@ -633,7 +683,7 @@ body h2 {
   transform: rotate(45deg);
 }
 
-/* --- ESTILOS RADIO (CATEGORÍAS - SELECCIÓN ÚNICA) --- */
+/* Radio (Categorías) */
 .control-radio {
   display: block;
   position: relative;
@@ -641,7 +691,7 @@ body h2 {
   cursor: pointer;
   font-family: "Roboto", sans-serif;
   font-size: 15px;
-  color: #1a1a1a;
+  color: var(--text-primary);
   user-select: none;
 }
 
@@ -659,7 +709,7 @@ body h2 {
   left: 0;
   height: 16px;
   width: 16px;
-  background-color: #ffffff;
+  background-color: var(--bg-main);
   border: 2px solid #cccccc;
   border-radius: 50%;
   transition: all 0.2s ease;
@@ -703,12 +753,14 @@ body h2 {
   padding: 0;
 }
 
-/* --- TARJETAS DE PRODUCTOS (DINÁMICAS) --- */
+/* ==========================================
+   7. TARJETAS DE PRODUCTO DINÁMICAS Y BADGES
+   ========================================== */
 .producto-card {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--border-color);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   display: flex;
@@ -727,7 +779,7 @@ body h2 {
 }
 
 .producto-imagen-wrapper {
-  background-color: #faf9f6;
+  background-color: var(--bg-card-img);
   width: 100%;
   aspect-ratio: 1 / 1;
   display: flex;
@@ -764,14 +816,14 @@ body h2 {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0;
   line-height: 1.35;
 }
 
 .producto-descripcion {
   font-size: 13px;
-  color: #666666;
+  color: var(--text-muted);
   margin: 0;
   line-height: 1.4;
   display: -webkit-box;
@@ -793,13 +845,13 @@ body h2 {
   font-family: "Roboto Slab", serif;
   font-size: 19px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0;
 }
 
 .producto-btn {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border: none;
   padding: 8px 14px;
   border-radius: 8px;
@@ -819,7 +871,7 @@ body h2 {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
-  color: #666666;
+  color: var(--text-muted);
   padding: 60px 20px;
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -833,7 +885,7 @@ body h2 {
   }
 }
 
-/* --- BADGES / TAGS EN TARJETAS DE PRODUCTOS --- */
+/* Badges / Etiquetas */
 .producto-tags-container {
   position: absolute;
   top: 8px;
@@ -858,24 +910,26 @@ body h2 {
 }
 
 .tag-sintacc {
-  background-color: #ffebee;
-  border: 1px solid #ffcdd2;
-  color: #c62828;
+  background-color: var(--tag-sintacc-bg);
+  border: 1px solid var(--tag-sintacc-border);
+  color: var(--tag-sintacc-text);
 }
 
 .tag-sinazucar {
-  background-color: #e3f2fd;
-  border: 1px solid #bbdefb;
-  color: #1565c0;
+  background-color: var(--tag-sinazucar-bg);
+  border: 1px solid var(--tag-sinazucar-border);
+  color: var(--tag-sinazucar-text);
 }
 
 .tag-vegano {
-  background-color: #e8f5e9;
-  border: 1px solid #c8e6c9;
-  color: #2e7d32;
+  background-color: var(--tag-vegano-bg);
+  border: 1px solid var(--tag-vegano-border);
+  color: var(--tag-vegano-text);
 }
 
-/* --- PÁGINA DE DETALLE DE PRODUCTO --- */
+/* ==========================================
+   8. PÁGINA DE DETALLE DE PRODUCTO
+   ========================================== */
 .contenedor-detalle-pagina {
   max-width: 1050px;
   margin: 40px auto 80px;
@@ -888,7 +942,7 @@ body h2 {
 }
 
 .volver-catalogo a {
-  color: #1a1a1a;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 600;
   font-size: 15px;
@@ -896,7 +950,7 @@ body h2 {
   align-items: center;
   gap: 8px;
   padding: 10px 18px;
-  background-color: #f1ede4;
+  background-color: var(--bg-secondary);
   border-radius: 10px;
   transition: all 0.2s ease;
 }
@@ -907,7 +961,7 @@ body h2 {
 }
 
 .card-detalle {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   border-radius: 20px;
   border: 2px solid #e0d8c8;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -949,8 +1003,8 @@ body h2 {
 
 .categoria-badge {
   display: inline-block;
-  background-color: #f1ede4;
-  color: #1b2127;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 13px;
@@ -962,7 +1016,7 @@ body h2 {
   font-family: "Roboto Slab", serif;
   font-size: 32px;
   margin: 0;
-  color: #1a1a1a;
+  color: var(--text-primary);
 }
 
 .producto-marca {
@@ -975,14 +1029,14 @@ body h2 {
   font-family: "Roboto Slab", serif;
   font-size: 28px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0;
 }
 
 .detalle-descripcion h3 {
   font-size: 16px;
   margin: 0 0 8px 0;
-  color: #1a1a1a;
+  color: var(--text-primary);
 }
 
 .detalle-descripcion p {
@@ -1008,8 +1062,8 @@ body h2 {
   box-sizing: border-box;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid #1a1a1a;
-  color: #1a1a1a;
+  border: 1px solid var(--border-color-strong);
+  color: var(--text-primary);
   border-radius: 10px;
   padding: 16px 30px;
   font-size: 16px;
@@ -1024,7 +1078,7 @@ body h2 {
 }
 
 .btn-consultar-ws:hover {
-  background-color: #f1ede4;
+  background-color: var(--bg-secondary);
   transform: scale(1.02);
 }
 
