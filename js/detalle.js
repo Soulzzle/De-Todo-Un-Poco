@@ -1,6 +1,10 @@
 // Link CSV de Google Sheets:
 const urlGoogleSheet = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQd9-z8x-I9S7F53ejauUthwDdnEy0wB7ei8RLRVVkyD8y1m3CWHDlBgxhURb1a3-Fde2tr-7C0Auue/pub?output=csv";
 
+// Número de teléfono de WhatsApp (código de país + característica + número sin + ni espacios)
+// Ejemplo para Argentina (+54 9 11 1234 5678 -> "5491112345678")
+const numeroWhatsApp = "5492478402392";
+
 const contenedorDetalle = document.getElementById('contenedor-detalle-producto');
 
 function normalizarTexto(texto) {
@@ -102,7 +106,7 @@ function renderizarDetalle(producto) {
     const categoria = producto.categoria ? `<span class="categoria-badge">${producto.categoria}</span>` : '';
     const marca = producto.marca ? `<p class="producto-marca"><strong>Marca:</strong> ${producto.marca}</p>` : '';
 
-    const mensajeWS = encodeURIComponent(`Hola! Quisiera consultar por el producto "${producto.nombre}"`);
+    const mensajeWS = encodeURIComponent(`Hola! Quisiera consultar por el producto "${producto.nombre}" que vi en su página web.`);
 
     contenedorDetalle.innerHTML = `
         <div class="card-detalle">
@@ -120,7 +124,7 @@ function renderizarDetalle(producto) {
                     <p>${descripcion}</p>
                 </div>
                 <div class="detalle-acciones">
-                    <a href="https://wa.me/?text=${mensajeWS}" target="_blank" class="btn-consultar-ws">Consultar por WhatsApp</a>
+                    <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWS}" target="_blank" class="btn-consultar-ws">Consultar por WhatsApp</a>
                 </div>
             </div>
         </div>
