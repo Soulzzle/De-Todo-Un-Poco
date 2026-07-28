@@ -53,73 +53,60 @@
           </div>
 
           <div class="filtro-grupo">
-            <h3>Categorías</h3>
+            <h3>Clasificaciones</h3>
             <div class="opciones-filtros">
               <label class="control-checkbox">
                 Sin TACC
-                <input type="checkbox">
+                <input type="checkbox" name="clasificacion" value="Sin TACC">
                 <span class="control-indicator"></span>
               </label>
               <label class="control-checkbox">
-                Sin Azúcares
-                <input type="checkbox">
+                Sin Azúcar
+                <input type="checkbox" name="clasificacion" value="Sin Azúcar">
                 <span class="control-indicator"></span>
               </label>
               <label class="control-checkbox">
-                Saludables
-                <input type="checkbox">
-                <span class="control-indicator"></span>
-              </label>
-              <label class="control-checkbox">
-                Repostería
-                <input type="checkbox">
-                <span class="control-indicator"></span>
-              </label>
-              <label class="control-checkbox">
-                Congelados
-                <input type="checkbox">
-                <span class="control-indicator"></span>
-              </label>
-              <label class="control-checkbox">
-                Semillas
-                <input type="checkbox">
-                <span class="control-indicator"></span>
-              </label>
-              <label class="control-checkbox">
-                Tés e Infusiones
-                <input type="checkbox">
-                <span class="control-indicator"></span>
-              </label>
-              <label class="control-checkbox">
-                Frutos Secos
-                <input type="checkbox">
+                Vegano
+                <input type="checkbox" name="clasificacion" value="Vegano">
                 <span class="control-indicator"></span>
               </label>
             </div>
           </div>
 
           <div class="filtro-grupo">
-            <h3>Marca</h3>
+            <h3>Categorías</h3>
             <div class="opciones-filtros">
-              <label class="control-checkbox">
-                Ceral
-                <input type="checkbox">
-                <span class="control-indicator"></span>
+              <label class="control-radio">
+                Repostería
+                <input type="radio" name="categoria" value="Repostería">
+                <span class="control-indicator-radio"></span>
               </label>
-              <label class="control-checkbox">
-                Natier
-                <input type="checkbox">
-                <span class="control-indicator"></span>
+              <label class="control-radio">
+                Congelados
+                <input type="radio" name="categoria" value="Congelados">
+                <span class="control-indicator-radio"></span>
               </label>
-              <label class="control-checkbox">
-                Nuestra Marca
-                <input type="checkbox">
-                <span class="control-indicator"></span>
+              <label class="control-radio">
+                Semillas
+                <input type="radio" name="categoria" value="Semillas">
+                <span class="control-indicator-radio"></span>
+              </label>
+              <label class="control-radio">
+                Tés/Infusiones
+                <input type="radio" name="categoria" value="Tés/Infusiones">
+                <span class="control-indicator-radio"></span>
+              </label>
+              <label class="control-radio">
+                Frutos Secos
+                <input type="radio" name="categoria" value="Frutos Secos">
+                <span class="control-indicator-radio"></span>
               </label>
             </div>
           </div>
         </aside>
-        <ul class="grilla-productos" id="contenedor-productos"></ul>
+        <ul class="grilla-productos" id="contenedor-productos">
+          <p class="mensaje-cargando">Cargando productos...</p>
+        </ul>
       </div>
     </section>
   </main>

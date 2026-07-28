@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>De Todo Un Poco</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header class="encabezado">
     <div class="encabezado-inner">
@@ -35,77 +39,8 @@
     </section>
     <section id="productos-destacados">
       <h2>Productos Destacados</h2>
-      <ul class="grilla-productos">
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 1">
-            <h3>Producto 1</h3>
-            <p>Descripción breve del producto 1.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 2">
-            <h3>Producto 2</h3>
-            <p>Descripción breve del producto 2.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 3">
-            <h3>Producto 3</h3>
-            <p>Descripción breve del producto 3.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 4">
-            <h3>Producto 4</h3>
-            <p>Descripción breve del producto 4.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 5">
-            <h3>Producto 5</h3>
-            <p>Descripción breve del producto 5.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 6">
-            <h3>Producto 6</h3>
-            <p>Descripción breve del producto 6.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 7">
-            <h3>Producto 7</h3>
-            <p>Descripción breve del producto 7.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 8">
-            <h3>Producto 8</h3>
-            <p>Descripción breve del producto 8.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 9">
-            <h3>Producto 9</h3>
-            <p>Descripción breve del producto 9.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="producto">
-            <img src="images/producto.png" alt="Producto 10">
-            <h3>Producto 10</h3>
-            <p>Descripción breve del producto 10.</p>
-          </a>
-        </li>
+      <ul class="grilla-productos" id="contenedor-destacados">
+        <p class="mensaje-cargando">Cargando productos...</p>
       </ul>
       <div><a href="pages/productos.html" class="btn-ver-productos">Ver todos los productos &rarr;</a></div>
     </section>
@@ -113,75 +48,75 @@
       <h2>Categorías</h2>
       <ul class="grilla-categorias">
         <li>
-          <a href="#categoria1" class="tarjeta-categoria">
+          <a href="pages/productos.html?clasificacion=Sin TACC" class="tarjeta-categoria">
             <div class="icono-fondo-categoria">
               <img src="images/sin-tacc-icon.png" alt="Sin TACC">
             </div>
             <h3>Sin TACC</h3>
-            <p>Descripción breve de la categoría 1.</p>
+            <p>Productos libres de gluten certificados para celíacos.</p>
           </a>
         </li>
         <li>
-          <a href="#categoria2" class="tarjeta-categoria">
+          <a href="pages/productos.html?clasificacion=Sin Azúcar" class="tarjeta-categoria">
             <div class="icono-fondo-categoria">
               <img src="images/sin-azucares-icon.png" alt="Sin Azúcares">
             </div>
             <h3>Sin Azúcares</h3>
-            <p>Descripción breve de la categoría 2.</p>
+            <p>Opciones saludables sin azúcar agregada.</p>
           </a>
         </li>
         <li>
-          <a href="#categoria3" class="tarjeta-categoria">
+          <a href="pages/productos.html?clasificacion=Vegano" class="tarjeta-categoria">
             <div class="icono-fondo-categoria">
-              <img src="images/saludables-icon.png" alt="Saludables">
+              <img src="images/saludables-icon.png" alt="Vegano">
             </div>
-            <h3>Saludables</h3>
-            <p>Descripción breve de la categoría 3.</p>
+            <h3>Vegano</h3>
+            <p>Alimentos 100% de origen vegetal y nutritivos.</p>
           </a>
         </li>
         <li>
-          <a href="#categoria4" class="tarjeta-categoria">
+          <a href="pages/productos.html?categoria=Repostería" class="tarjeta-categoria">
             <div class="icono-fondo-categoria">
               <img src="images/reposteria-icon.png" alt="Repostería">
             </div>
             <h3>Repostería</h3>
-            <p>Descripción breve de la categoría 4.</p>
+            <p>Insumos e ingredientes saludables para tus recetas.</p>
           </a>
         </li>
         <li>
-          <a href="#categoria5" class="tarjeta-categoria">
+          <a href="pages/productos.html?categoria=Congelados" class="tarjeta-categoria">
             <div class="icono-fondo-categoria">
               <img src="images/congelados-icon.png" alt="Congelados">
             </div>
             <h3>Congelados</h3>
-            <p>Descripción breve de la categoría 5.</p>
+            <p>Viandas, verduras y alimentos congelados prácticos.</p>
           </a>
         </li>
         <li>
-          <a href="#categoria6" class="tarjeta-categoria">
+          <a href="pages/productos.html?categoria=Semillas" class="tarjeta-categoria">
             <div class="icono-fondo-categoria">
               <img src="images/semillas-icon.png" alt="Semillas">
             </div>
             <h3>Semillas</h3>
-            <p>Descripción breve de la categoría 6.</p>
+            <p>Chía, lino, sésamo, girasol y muchísimas más fuentes de fibra.</p>
           </a>
         </li>
         <li>
-          <a href="#categoria7" class="tarjeta-categoria">
+          <a href="pages/productos.html?categoria=Tés/Infusiones" class="tarjeta-categoria">
             <div class="icono-fondo-categoria">
               <img src="images/tes-infusiones-icon.png" alt="Tés e Infusiones">
             </div>
             <h3>Tés e Infusiones</h3>
-            <p>Descripción breve de la categoría 7.</p>
+            <p>Gran variedad de hebras, hierbas e infusiones naturales.</p>
           </a>
         </li>
         <li>
-          <a href="#categoria8" class="tarjeta-categoria">
+          <a href="pages/productos.html?categoria=Frutos Secos" class="tarjeta-categoria">
             <div class="icono-fondo-categoria">
               <img src="images/frutos-secos-icon.png" alt="Frutos Secos">
             </div>
             <h3>Frutos Secos</h3>
-            <p>Descripción breve de la categoría 8.</p>
+            <p>Nueces, almendras, castañas y más mixes nutritivos.</p>
           </a>
         </li>
       </ul>
@@ -189,63 +124,37 @@
     </section>
     <section id="productos-nuevos">
       <h2>Productos Nuevos</h2>
-      <ul class="grilla-productos">
-        <li>
-          <a href="#producto1" class="producto">
-            <img src="images/producto.png" alt="Producto 1">
-            <h3>Producto 1</h3>
-            <p>Descripción breve del producto 1.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#producto2" class="producto">
-            <img src="images/producto.png" alt="Producto 2">
-            <h3>Producto 2</h3>
-            <p>Descripción breve del producto 2.</p>
-          </a>
-        </li>
-        <li>
-          <a href="#producto3" class="producto">
-            <img src="images/producto.png" alt="Producto 3">
-            <h3>Producto 3</h3>
-            <p>Descripción breve del producto 3.</p>
-          </a>
-        </li>
-        <li>
-            <a href="#producto4" class="producto">
-              <img src="images/producto.png" alt="Producto 4">
-              <h3>Producto 4</h3>
-              <p>Descripción breve del producto 4.</p>
-            </a>
-        </li>
-        <li>
-            <a href="#producto5" class="producto">
-              <img src="images/producto.png" alt="Producto 5">
-              <h3>Producto 5</h3>
-              <p>Descripción breve del producto 5.</p>
-            </a>
-        </li>
+      <ul class="grilla-productos" id="contenedor-nuevos">
+        <p class="mensaje-cargando">Cargando productos...</p>
       </ul>
       <div><a href="pages/productos.html" class="btn-ver-productos">Ver todos los productos &rarr;</a></div>
     </section>
     <section id="desc-dtup">
       <div id="desc-dtup-inner">
         <h2>¿Quiénes somos?</h2>
-        <p>En <strong>De Todo Un Poco</strong>, te ofrecemos una amplia variedad de productos para que puedas encontrar todo lo que buscás en un solo lugar. Somos un almacén y dietética donde la prioridad es la calidad y la diversidad de nuestra mercadería.</p>
-        <p>Nos especializamos en productos sin TACC, sin azúcar, cereales, condimentos, semillas y frutos secos, entre muchas otras opciones. Nuestro objetivo es proporcionarte opciones saludables y de buena calidad que te sirvan para tu bienestar.</p>
+        <p>En <strong>De Todo Un Poco</strong>, te ofrecemos una amplia variedad de productos para que puedas encontrar
+          todo lo que buscás en un solo lugar. Somos un almacén y dietética donde la prioridad es la calidad y la
+          diversidad de nuestra mercadería.</p>
+        <p>Nos especializamos en productos sin TACC, sin azúcar, cereales, condimentos, semillas y frutos secos, entre
+          muchas otras opciones. Nuestro objetivo es proporcionarte opciones saludables y de buena calidad que te sirvan
+          para tu bienestar.</p>
         <h3>Por qué elegirnos:</h3>
         <ul class="lista-beneficios">
           <li>
-            <strong>✅ Compromiso y Transparencia:</strong> Nos esforzamos por ser tu lugar de confianza, aclarandote siempre cada producto y teniendo un trato cercano en cada compra.
+            <strong>✅ Compromiso y Transparencia:</strong> Nos esforzamos por ser tu lugar de confianza, aclarandote
+            siempre cada producto y teniendo un trato cercano en cada compra.
           </li>
           <li>
-            <strong>🌱 Calidad:</strong> Trabajamos con proveedores de confianza y renombre para garantizarte la mejor calidad.
+            <strong>🌱 Calidad:</strong> Trabajamos con proveedores de confianza y renombre para garantizarte la mejor
+            calidad.
           </li>
           <li>
-            <strong>💚 Higiene y Cuidado:</strong> Nos preocupamos por la higiene y el cuidado de todos nuestros productos, asegurando que te lleguen en las mejores condiciones.
+            <strong>💚 Higiene y Cuidado:</strong> Nos preocupamos por la higiene y el cuidado de todos nuestros
+            productos, asegurando que te lleguen en las mejores condiciones.
           </li>
           <li>
-            <strong>📦 Variedad Real:</strong> Olvidate de dar vueltas. Encontrás productos de más de 16 categorías, todo en un solo lugar.
+            <strong>📦 Variedad Real:</strong> Olvidate de dar vueltas. Encontrás productos de más de 16 categorías,
+            todo en un solo lugar.
           </li>
         </ul>
       </div>
@@ -254,7 +163,7 @@
       <div></div>
     </div>
   </main>
-  
+
   <footer id="pie-pagina">
     <div class="footer-inner">
       <div class="menu-footer">
@@ -285,7 +194,8 @@
           </li>
           <li class="item-footer">
             <img src="images/mapa-contacto.png" alt="Mapa">
-            <a href="https://maps.app.goo.gl/Je3asyAWKTwyVbgQ8" target="_blank">Irigoyen 386, San Antonio de Areco, Provincia de Buenos Aires</a>
+            <a href="https://maps.app.goo.gl/Je3asyAWKTwyVbgQ8" target="_blank">Irigoyen 386, San Antonio de Areco,
+              Provincia de Buenos Aires</a>
           </li>
         </ul>
       </div>
@@ -295,5 +205,7 @@
       </div>
     </div>
   </footer>
+  <script src="js/inicio.js"></script>
 </body>
+
 </html>
