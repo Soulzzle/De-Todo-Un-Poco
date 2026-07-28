@@ -991,23 +991,40 @@ body h2 {
   margin: 0;
 }
 
+.detalle-acciones {
+  margin-top: auto;
+  padding-top: 15px;
+}
+
 .btn-consultar-ws {
-  display: inline-block;
-  background-color: #25d366;
-  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
   text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
   font-weight: bold;
-  padding: 14px 28px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
   border-radius: 10px;
-  font-size: 15px;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-  margin-top: 10px;
-  width: fit-content;
+  padding: 16px 30px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.btn-consultar-ws .icono-ws {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .btn-consultar-ws:hover {
-  background-color: #1eb956;
-  transform: translateY(-2px);
+  background-color: #f1ede4;
+  transform: scale(1.02);
 }
 
 @media (max-width: 768px) {

@@ -124,7 +124,10 @@ function renderizarDetalle(producto) {
                     <p>${descripcion}</p>
                 </div>
                 <div class="detalle-acciones">
-                    <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWS}" target="_blank" class="btn-consultar-ws">Consultar por WhatsApp</a>
+                    <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWS}" target="_blank" class="btn-consultar-ws">
+                        <span>Consultar por WhatsApp</span>
+                        <img src="../images/whap-contacto.png" alt="WhatsApp" class="icono-ws">
+                    </a>
                 </div>
             </div>
         </div>
