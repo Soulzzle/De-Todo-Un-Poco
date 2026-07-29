@@ -184,6 +184,36 @@
   max-width: 1270px;
 }
 
+/* --- ADAPTACIONES DE CATEGORÍAS PARA MODO OSCURO (DARK MODE) --- */
+body.dark-mode .tarjeta-categoria {
+  background-color: #272a2e;
+  border: 1px solid #383b40;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .tarjeta-categoria:hover {
+  border-color: #52565c;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .icono-fondo-categoria {
+  background-color: #191b1d;
+  border: 1px solid #33363b;
+}
+
+body.dark-mode .btn-ver-categorias {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+}
+
+body.dark-mode .btn-ver-categorias:hover {
+  background-color: var(--btn-primary-hover);
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
 /* --- SECCIÓN QUIÉNES SOMOS --- */
 #desc-dtup {
   scroll-margin-top: var(--header-offset);

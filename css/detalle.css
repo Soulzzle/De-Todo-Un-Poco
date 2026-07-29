@@ -28,26 +28,27 @@
 }
 
 .volver-catalogo a:hover {
-  background-color: #e4dfd3;
+  background-color: var(--bg-secondary-hover);
   transform: translateX(-4px);
 }
 
 .card-detalle {
   background-color: var(--bg-card);
   border-radius: 20px;
-  border: 2px solid #e0d8c8;
+  border: 2px solid var(--border-color);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
   display: flex;
   gap: 40px;
   padding: 40px;
   box-sizing: border-box;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .detalle-imagen-wrapper {
   width: 380px;
   height: 380px;
   flex-shrink: 0;
-  background-color: #f7f4ed;
+  background-color: var(--bg-card-img);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -56,7 +57,8 @@
   overflow: hidden;
   padding: 24px;
   box-sizing: border-box;
-  border: 1px solid #e8e2d4;
+  border: 1px solid var(--border-color);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .detalle-imagen-wrapper img {
@@ -93,7 +95,7 @@
 
 .producto-marca {
   font-size: 15px;
-  color: #555555;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -113,7 +115,7 @@
 
 .detalle-descripcion p {
   font-size: 15px;
-  color: #444444;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
 }
@@ -133,9 +135,9 @@
   text-align: center;
   box-sizing: border-box;
   font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--btn-primary-bg);
   border: 1px solid var(--border-color-strong);
-  color: var(--text-primary);
+  color: var(--btn-primary-text);
   border-radius: 10px;
   padding: 16px 30px;
   font-size: 16px;
@@ -150,7 +152,7 @@
 }
 
 .btn-consultar-ws:hover {
-  background-color: var(--bg-secondary);
+  background-color: var(--btn-primary-hover);
   transform: scale(1.02);
 }
 
