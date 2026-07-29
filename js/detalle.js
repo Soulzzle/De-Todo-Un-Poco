@@ -3,7 +3,7 @@ const urlGoogleSheet = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQd9-z8x
 
 // Número de teléfono de WhatsApp (código de país + característica + número sin + ni espacios)
 // Ejemplo para Argentina (+54 9 11 1234 5678 -> "5491112345678")
-const numeroWhatsApp = "5492478402392";
+const numeroWhatsApp = "5492478470872";
 
 const contenedorDetalle = document.getElementById('contenedor-detalle-producto');
 
