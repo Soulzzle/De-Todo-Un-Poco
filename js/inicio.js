@@ -141,6 +141,16 @@ async function cargarProductosInicio() {
         const productosDestacados = obtenerDestacadosRandom(productosValidos, 10);
         renderizarProductos(contenedorDestacados, productosDestacados);
 
+        // 3. Re-desplazar al ancla (#desc-dtup, #pie-pagina, etc.) si la URL contiene un hash
+        if (window.location.hash) {
+            const elementoTarget = document.querySelector(window.location.hash);
+            if (elementoTarget) {
+                setTimeout(() => {
+                    elementoTarget.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+
     } catch (error) {
         console.error("Error al cargar productos para la página de inicio:", error);
         if (contenedorDestacados) {
