@@ -92,14 +92,7 @@ body.dark-mode {
   --tag-vegano-text: #b9f6ca;
 }
 
-body.dark-mode .btn-dark-mode {
-  background-color: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
-}
 
-body.dark-mode .btn-dark-mode:hover {
-  background-color: var(--btn-primary-hover);
-}
 
 /* --- 3. CONFIGURACIÓN GLOBAL & RESETS --- */
 html {
@@ -194,20 +187,94 @@ body h2 {
   padding: 10px 15px;
 }
 
+/* --- BOTÓN DE MODO OSCURO (INTERRUPTOR HORIZONTAL CON SOL Y LUNA) --- */
 .btn-dark-mode {
-  text-decoration: none;
-  background-color: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
-  padding: 10px 20px;
+  background: transparent;
   border: none;
-  border-radius: 10px;
-  font-weight: bold;
+  padding: 0;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  outline: none;
 }
 
-.btn-dark-mode:hover {
-  background-color: var(--btn-primary-hover);
+.toggle-track {
+  width: 54px;
+  height: 28px;
+  background-color: #e2ded5;
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border: 2px solid #d4cebe;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.icon-sun,
+.icon-moon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -6.5px;
+  margin-left: -6.5px;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s ease;
+}
+
+.icon-sun {
+  color: #f57c00;
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.icon-moon {
+  color: #fbc02d;
+  opacity: 0;
+  transform: scale(0.4) rotate(-90deg);
+}
+
+/* Estado Modo Oscuro (Dark Mode) */
+body.dark-mode .toggle-track {
+  background-color: #2a2d32;
+  border-color: #40444a;
+}
+
+body.dark-mode .toggle-thumb {
+  transform: translateX(26px);
+  background-color: #1e2023;
+}
+
+body.dark-mode .icon-sun {
+  opacity: 0;
+  transform: scale(0.4) rotate(90deg);
+}
+
+body.dark-mode .icon-moon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.btn-dark-mode:hover .toggle-track {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 0 6px rgba(0, 0, 0, 0.12);
 }
 
 /* --- 5. PIE DE PÁGINA (FOOTER) COMPARTIDO --- */
