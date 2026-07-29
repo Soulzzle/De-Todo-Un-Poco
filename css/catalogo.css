@@ -1,0 +1,222 @@
+/* ==========================================
+   ESTILOS ESPECÍFICOS DE CATÁLOGO (productos.html)
+   ========================================== */
+
+.catalogo-header {
+  padding: 20px 80px;
+  text-align: center;
+  background-color: var(--bg-secondary);
+}
+
+.catalogo-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.catalogo-header p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+#catalogo-completo {
+  padding: 20px;
+}
+
+.contenedor-ancho-catalogo {
+  width: 100%;
+  max-width: 1800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.filtros-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background-color: var(--bg-sidebar);
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color-subtle);
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.filtro-grupo {
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border-color-subtle);
+  padding-bottom: 25px;
+}
+
+.filtro-grupo:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.filtro-grupo h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.busqueda-wrapper input[type="search"] {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.busqueda-wrapper input[type="search"]:focus {
+  border-color: var(--border-color-strong);
+  outline: none;
+}
+
+.opciones-filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Control Checkbox (Clasificaciones) */
+.control-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+.control-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.control-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: var(--bg-main);
+  border: 2px solid #cccccc;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.control-checkbox:hover input~.control-indicator {
+  border-color: #888888;
+}
+
+.control-checkbox input:checked~.control-indicator {
+  background-color: #353535;
+  border-color: #353535;
+}
+
+.control-indicator:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.control-checkbox input:checked~.control-indicator:after {
+  display: block;
+}
+
+.control-checkbox .control-indicator:after {
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Control Radio (Categorías) */
+.control-radio {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+.control-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.control-indicator-radio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: var(--bg-main);
+  border: 2px solid #cccccc;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.control-radio:hover input~.control-indicator-radio {
+  border-color: #888888;
+}
+
+.control-radio input:checked~.control-indicator-radio {
+  background-color: #353535;
+  border-color: #353535;
+}
+
+.control-indicator-radio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.control-radio input:checked~.control-indicator-radio:after {
+  display: block;
+}
+
+.control-radio .control-indicator-radio:after {
+  left: 5px;
+  top: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.contenedor-ancho-catalogo .grilla-productos {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 200px));
+  gap: 20px;
+  justify-content: start;
+  margin: 0;
+  padding: 0;
+}

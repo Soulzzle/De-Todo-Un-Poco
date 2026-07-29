@@ -1,11 +1,18 @@
 /* ==========================================
-   1. VARIABLES & CONFIGURACIÓN GLOBAL
+   HOJA DE ESTILOS PRINCIPAL (styles.css)
    ========================================== */
+
+/* --- 1. IMPORTACIÓN DE ARCHIVOS CSS MODULARES --- */
+@import url('inicio.css');
+@import url('catalogo.css');
+@import url('detalle.css');
+
+/* --- 2. VARIABLES GLOBALES (Custom Properties para Dark Mode) --- */
 :root {
   /* Layout & Spacing */
   --header-offset: 80px;
 
-  /* Colores Principales (Fácilmente modificables para Dark Mode) */
+  /* Colores Principales */
   --bg-main: #ffffff;
   --bg-secondary: #f1ede4;
   --bg-secondary-hover: #dbd9d1;
@@ -43,6 +50,7 @@
   --tag-vegano-text: #2e7d32;
 }
 
+/* --- 3. CONFIGURACIÓN GLOBAL & RESETS --- */
 html {
   scroll-behavior: smooth;
 }
@@ -76,9 +84,7 @@ body h2 {
   color: var(--text-primary);
 }
 
-/* ==========================================
-   2. ENCABEZADO Y MENÚ DE NAVEGACIÓN
-   ========================================== */
+/* --- 4. ENCABEZADO Y MENÚ DE NAVEGACIÓN COMPARTIDO --- */
 .encabezado {
   background-color: var(--bg-secondary);
   padding: 10px 20px;
@@ -150,292 +156,7 @@ body h2 {
   background-color: var(--btn-primary-hover);
 }
 
-/* ==========================================
-   3. BANNER PRINCIPAL
-   ========================================== */
-.banner {
-  background-image: url('../images/banner.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
-  color: var(--text-light);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.banner h1 {
-  font-family: "Roboto Slab", sans-serif;
-  font-size: 60px;
-  margin-bottom: 10px;
-}
-
-.banner h2 {
-  font-size: 25px;
-  font-weight: 400;
-  margin-bottom: 60px;
-  color: var(--text-light);
-}
-
-.ver-mas {
-  text-decoration: none;
-  font-size: 20px;
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--text-light);
-  padding: 20px 40px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  font-family: "SN Pro", sans-serif;
-  font-weight: 400;
-  backdrop-filter: blur(1px);
-  transition: background-color 0.1s ease-in-out, transform 0.2s ease-in-out;
-  cursor: pointer;
-  text-align: center;
-}
-
-.ver-mas:hover {
-  background-color: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  transform: scale(1.05);
-}
-
-/* ==========================================
-   4. SECCIONES DE LA PÁGINA PRINCIPAL
-   ========================================== */
-#productos-destacados {
-  text-align: center;
-  scroll-margin-top: var(--header-offset);
-  padding: 40px 100px;
-}
-
-.grilla-productos {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(5, 200px);
-  justify-content: center;
-  gap: 20px;
-}
-
-@media (max-width: 1140px) {
-  .grilla-productos {
-    grid-template-columns: repeat(2, 200px);
-  }
-}
-
-@media (max-width: 480px) {
-  .grilla-productos {
-    grid-template-columns: repeat(1, minmax(200px, 300px));
-  }
-
-  .producto img {
-    width: 100%;
-  }
-}
-
-.producto {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease-in-out;
-}
-
-.producto h3 {
-  margin: 10px;
-}
-
-.producto p {
-  margin: 10px;
-  color: #3a3a3a;
-}
-
-.producto img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  margin-bottom: 15px;
-}
-
-.producto:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.btn-ver-productos {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: bold;
-  background-color: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
-  border-radius: 10px;
-  margin: 60px auto 30px;
-  padding: 20px 40px;
-  transition: all 0.2s ease;
-}
-
-.btn-ver-productos:hover {
-  background-color: var(--btn-primary-hover);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transform: scale(1.05);
-}
-
-/* Categorías */
-#categorias {
-  background-color: var(--bg-secondary);
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.grilla-categorias {
-  list-style: none;
-  display: grid;
-  padding: 0;
-  margin: 0;
-  grid-template-columns: repeat(4, 300px);
-  gap: 20px;
-  justify-content: center;
-}
-
-@media (max-width: 1320px) {
-  .grilla-categorias {
-    grid-template-columns: repeat(2, 300px);
-  }
-}
-
-@media (max-width: 680px) {
-  .grilla-categorias {
-    grid-template-columns: repeat(1, minmax(200px, 300px));
-  }
-}
-
-.tarjeta-categoria {
-  background-color: var(--bg-card);
-  width: 100%;
-  padding: 40px 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--text-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0), 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease-in-out;
-  box-sizing: border-box;
-}
-
-.tarjeta-categoria:hover {
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2), 0 12px 25px rgba(0, 0, 0, 0.15);
-}
-
-.tarjeta-categoria p {
-  margin: 0;
-  color: var(--text-secondary);
-  font-weight: 350;
-  font-size: 15px;
-}
-
-.icono-fondo-categoria {
-  background-color: var(--bg-secondary);
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease-in-out;
-}
-
-.tarjeta-categoria:hover .icono-fondo-categoria {
-  transform: scale(1.1);
-}
-
-.icono-fondo-categoria img {
-  width: 80px;
-  height: 80px;
-}
-
-.btn-ver-categorias {
-  display: block;
-  width: 100%;
-  text-decoration: none;
-  text-align: center;
-  box-sizing: border-box;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--border-color-strong);
-  color: var(--text-primary);
-  border-radius: 10px;
-  margin: 60px auto 30px;
-  padding: 20px 40px;
-  max-width: 1270px;
-  transition: all 0.2s ease;
-}
-
-.btn-ver-categorias:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  transform: scale(1.02);
-  max-width: 1270px;
-}
-
-#productos-nuevos {
-  text-align: center;
-  scroll-margin-top: var(--header-offset);
-  padding: 40px 100px;
-}
-
-/* Quiénes somos */
-#desc-dtup {
-  scroll-margin-top: var(--header-offset);
-  padding: 40px 80px;
-  text-align: center;
-  background-color: var(--bg-secondary);
-}
-
-#desc-dtup-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#desc-dtup-inner p {
-  margin: 0 auto 0;
-  color: var(--text-secondary);
-}
-
-.lista-beneficios {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-}
-
-.lista-beneficios li {
-  margin-bottom: 10px;
-  color: var(--text-secondary);
-}
-
-.separador {
-  background-color: var(--bg-secondary);
-}
-
-.separador div {
-  height: 1px;
-  background-color: var(--border-color-strong);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ==========================================
-   5. PIE DE PÁGINA (FOOTER)
-   ========================================== */
+/* --- 5. PIE DE PÁGINA (FOOTER) COMPARTIDO --- */
 #pie-pagina {
   scroll-margin-top: var(--header-offset);
   display: flex;
@@ -532,230 +253,27 @@ body h2 {
   }
 }
 
-/* ==========================================
-   6. PÁGINA DE PRODUCTOS (PRODUCTOS.HTML)
-   ========================================== */
-.catalogo-header {
-  padding: 20px 80px;
-  text-align: center;
-  background-color: var(--bg-secondary);
-}
-
-.catalogo-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.catalogo-header p {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-}
-
-#catalogo-completo {
-  padding: 20px;
-}
-
-.contenedor-ancho-catalogo {
-  width: 100%;
-  max-width: 1800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-}
-
-.filtros-sidebar {
-  width: 280px;
-  flex-shrink: 0;
-  background-color: var(--bg-sidebar);
-  padding: 30px;
-  border-radius: 10px;
-  border: 1px solid var(--border-color-subtle);
-  position: sticky;
-  top: 100px;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-}
-
-.filtro-grupo {
-  margin-bottom: 30px;
-  border-bottom: 1px solid var(--border-color-subtle);
-  padding-bottom: 25px;
-}
-
-.filtro-grupo:last-child {
-  margin-bottom: 0;
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.filtro-grupo h3 {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.1rem;
-  color: var(--text-primary);
-  margin: 0 0 15px 0;
-  font-weight: 700;
-}
-
-.busqueda-wrapper input[type="search"] {
-  width: 100%;
-  padding: 10px 15px;
-  border: 1px solid #dddddd;
-  border-radius: 10px;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  box-sizing: border-box;
-  transition: border-color 0.2s;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-}
-
-.busqueda-wrapper input[type="search"]:focus {
-  border-color: var(--border-color-strong);
-  outline: none;
-}
-
-.opciones-filtros {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.control-checkbox {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  color: var(--text-primary);
-  user-select: none;
-}
-
-.control-checkbox input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.control-indicator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 16px;
-  width: 16px;
-  background-color: var(--bg-main);
-  border: 2px solid #cccccc;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.control-checkbox:hover input~.control-indicator {
-  border-color: #888888;
-}
-
-.control-checkbox input:checked~.control-indicator {
-  background-color: #353535;
-  border-color: #353535;
-}
-
-.control-indicator:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.control-checkbox input:checked~.control-indicator:after {
-  display: block;
-}
-
-.control-checkbox .control-indicator:after {
-  left: 5px;
-  top: 1px;
-  width: 4px;
-  height: 9px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
-/* Radio (Categorías) */
-.control-radio {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  color: var(--text-primary);
-  user-select: none;
-}
-
-.control-radio input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.control-indicator-radio {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 16px;
-  width: 16px;
-  background-color: var(--bg-main);
-  border: 2px solid #cccccc;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-}
-
-.control-radio:hover input~.control-indicator-radio {
-  border-color: #888888;
-}
-
-.control-radio input:checked~.control-indicator-radio {
-  background-color: #353535;
-  border-color: #353535;
-}
-
-.control-indicator-radio:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.control-radio input:checked~.control-indicator-radio:after {
-  display: block;
-}
-
-.control-radio .control-indicator-radio:after {
-  left: 5px;
-  top: 5px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: white;
-}
-
-.contenedor-ancho-catalogo .grilla-productos {
-  flex: 1;
+/* --- 6. COMPONENTES COMPARTIDOS: TARJETAS DE PRODUCTO Y BADGES --- */
+.grilla-productos {
+  list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 200px));
+  grid-template-columns: repeat(5, 200px);
+  justify-content: center;
   gap: 20px;
-  justify-content: start;
-  margin: 0;
-  padding: 0;
 }
 
-/* ==========================================
-   7. TARJETAS DE PRODUCTO DINÁMICAS Y BADGES
-   ========================================== */
+@media (max-width: 1140px) {
+  .grilla-productos {
+    grid-template-columns: repeat(2, 200px);
+  }
+}
+
+@media (max-width: 480px) {
+  .grilla-productos {
+    grid-template-columns: repeat(1, minmax(200px, 300px));
+  }
+}
+
 .producto-card {
   background-color: var(--bg-card);
   border-radius: 14px;
@@ -877,14 +395,6 @@ body h2 {
   font-family: "Roboto", sans-serif;
 }
 
-@media (max-width: 600px) {
-  .contenedor-ancho-catalogo .grilla-productos {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 14px;
-    justify-content: center;
-  }
-}
-
 /* Badges / Etiquetas */
 .producto-tags-container {
   position: absolute;
@@ -925,171 +435,4 @@ body h2 {
   background-color: var(--tag-vegano-bg);
   border: 1px solid var(--tag-vegano-border);
   color: var(--tag-vegano-text);
-}
-
-/* ==========================================
-   8. PÁGINA DE DETALLE DE PRODUCTO
-   ========================================== */
-.contenedor-detalle-pagina {
-  max-width: 1050px;
-  margin: 40px auto 80px;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.volver-catalogo {
-  margin-bottom: 24px;
-}
-
-.volver-catalogo a {
-  color: var(--text-primary);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  background-color: var(--bg-secondary);
-  border-radius: 10px;
-  transition: all 0.2s ease;
-}
-
-.volver-catalogo a:hover {
-  background-color: #e4dfd3;
-  transform: translateX(-4px);
-}
-
-.card-detalle {
-  background-color: var(--bg-card);
-  border-radius: 20px;
-  border: 2px solid #e0d8c8;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
-  display: flex;
-  gap: 40px;
-  padding: 40px;
-  box-sizing: border-box;
-}
-
-.detalle-imagen-wrapper {
-  width: 380px;
-  height: 380px;
-  flex-shrink: 0;
-  background-color: #f7f4ed;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 24px;
-  box-sizing: border-box;
-  border: 1px solid #e8e2d4;
-}
-
-.detalle-imagen-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.detalle-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 16px;
-}
-
-.categoria-badge {
-  display: inline-block;
-  background-color: var(--bg-secondary);
-  color: var(--text-secondary);
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  width: fit-content;
-}
-
-.detalle-titulo {
-  font-family: "Roboto Slab", serif;
-  font-size: 32px;
-  margin: 0;
-  color: var(--text-primary);
-}
-
-.producto-marca {
-  font-size: 15px;
-  color: #555555;
-  margin: 0;
-}
-
-.detalle-precio {
-  font-family: "Roboto Slab", serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.detalle-descripcion h3 {
-  font-size: 16px;
-  margin: 0 0 8px 0;
-  color: var(--text-primary);
-}
-
-.detalle-descripcion p {
-  font-size: 15px;
-  color: #444444;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.detalle-acciones {
-  margin-top: auto;
-  padding-top: 15px;
-}
-
-.btn-consultar-ws {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  text-decoration: none;
-  text-align: center;
-  box-sizing: border-box;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--border-color-strong);
-  color: var(--text-primary);
-  border-radius: 10px;
-  padding: 16px 30px;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  transition: all 0.2s ease;
-}
-
-.btn-consultar-ws .icono-ws {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
-.btn-consultar-ws:hover {
-  background-color: var(--bg-secondary);
-  transform: scale(1.02);
-}
-
-@media (max-width: 768px) {
-  .card-detalle {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .detalle-imagen-wrapper {
-    width: 100%;
-    height: 280px;
-  }
 }
