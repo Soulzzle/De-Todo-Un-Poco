@@ -175,14 +175,24 @@ function aplicarFiltros() {
 
         // 3. Filtro por Categoría (Selección Única)
         if (categoriaActiva) {
-            let coincideCat = categoriaProdNorm === categoriaActiva ||
-                               categoriaProdNorm.includes(categoriaActiva) ||
-                               categoriaActiva.includes(categoriaProdNorm);
+            let coincideCat = categoriaProdNorm === categoriaActiva;
 
-            // Manejo especial de variaciones como "tes/infusiones" vs "tes e infusiones"
             if (!coincideCat) {
-                if (categoriaActiva.includes('tes') && categoriaProdNorm.includes('tes')) coincideCat = true;
-                if (categoriaActiva.includes('infus') && categoriaProdNorm.includes('infus')) coincideCat = true;
+                // Dividir ambas categorías en palabras limpias (ignorando barras, espacios o comas)
+                const palabrasActiva = categoriaActiva.split(/[\/\s,]+/).filter(p => p.length > 0);
+                const palabrasProd = categoriaProdNorm.split(/[\/\s,]+/).filter(p => p.length > 0);
+
+                // Comprobar si comparten alguna palabra relevante (ej: 'aceite'/'aceites', 'te'/'tes', 'infusiones')
+                coincideCat = palabrasActiva.some(pActiva =>
+                    palabrasProd.some(pProd => {
+                        if (pActiva === pProd) return true;
+                        // Manejo de singular/plural o prefijos comunes
+                        if (pActiva.startsWith(pProd) || pProd.startsWith(pActiva)) {
+                            return Math.min(pActiva.length, pProd.length) >= 2;
+                        }
+                        return false;
+                    })
+                );
             }
 
             if (!coincideCat) return false;
