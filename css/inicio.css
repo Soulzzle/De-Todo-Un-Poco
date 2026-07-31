@@ -7,7 +7,6 @@
   background-image: url('../images/banner.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
   min-height: 400px;
   height: 60vh;
@@ -198,11 +197,6 @@
   margin: 50px auto 10px;
   padding: 16px 36px;
   transition: all 0.2s ease;
-}
-
-.btn-ver-categorias:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  transform: scale(1.02);
 }
 
 .btn-ver-categorias:hover {
