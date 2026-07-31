@@ -61,7 +61,8 @@
               <input type="search" placeholder="Ej: Almendras..." id="busqueda-productos">
             </div>
             <button type="button" class="btn-toggle-filtros" id="btn-toggle-filtros" aria-expanded="false">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
               </svg>
               <span>Filtros y Categorías</span>
@@ -173,9 +174,12 @@
             </div>
           </div>
         </aside>
-        <ul class="grilla-productos" id="contenedor-productos">
-          <p class="mensaje-cargando">Cargando productos...</p>
-        </ul>
+        <div class="catalogo-contenido">
+          <ul class="grilla-productos" id="contenedor-productos">
+            <p class="mensaje-cargando">Cargando productos...</p>
+          </ul>
+          <div id="contenedor-paginacion" class="paginacion-wrapper"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -197,25 +201,25 @@
         <h3>Contactános</h3>
         <ul>
           <li class="item-footer">
-            <img src="../images/whap-contacto.png" alt="WhatsApp">
+            <img src="../images/whap-contacto.png" alt="WhatsApp" loading="lazy">
             <a href="#">WhatsApp</a>
           </li>
           <li class="item-footer">
-            <img src="../images/tel-contacto.png" alt="Teléfono">
+            <img src="../images/tel-contacto.png" alt="Teléfono" loading="lazy">
             <a href="#">Teléfono</a>
           </li>
           <li class="item-footer">
-            <img src="../images/email-contacto.png" alt="Email">
+            <img src="../images/email-contacto.png" alt="Email" loading="lazy">
             <a href="#">Email</a>
           </li>
           <li class="item-footer">
-            <img src="../images/mapa-contacto.png" alt="Mapa">
+            <img src="../images/mapa-contacto.png" alt="Mapa" loading="lazy">
             <a href="https://maps.app.goo.gl/Je3asyAWKTwyVbgQ8" target="_blank">Irigoyen 386, San Antonio de Areco</a>
           </li>
         </ul>
       </div>
       <div class="logo-footer">
-        <img src="../images/logo.png" alt="Logo de De Todo Un Poco">
+        <img src="../images/logo.png" alt="Logo de De Todo Un Poco" loading="lazy">
         <p>Copyright © 2026 - De Todo Un Poco - Todos los derechos reservados.</p>
       </div>
     </div>

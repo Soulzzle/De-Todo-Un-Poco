@@ -112,7 +112,7 @@ function renderizarDetalle(producto) {
         <div class="card-detalle">
             <div class="detalle-imagen-wrapper">
                 ${tagsHTML}
-                <img src="${rutaImagen}" alt="${producto.nombre}" onerror="this.onerror=null;this.src='../images/producto.png';">
+                <img src="${rutaImagen}" alt="${producto.nombre}" loading="lazy" onerror="this.onerror=null;this.src='../images/producto.png';">
             </div>
             <div class="detalle-info">
                 ${categoria}
@@ -126,7 +126,7 @@ function renderizarDetalle(producto) {
                 <div class="detalle-acciones">
                     <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWS}" target="_blank" class="btn-consultar-ws">
                         <span>Consultar por WhatsApp</span>
-                        <img src="../images/whap-contacto.png" alt="WhatsApp" class="icono-ws">
+                        <img src="../images/whap-contacto.png" alt="WhatsApp" class="icono-ws" loading="lazy">
                     </a>
                 </div>
             </div>

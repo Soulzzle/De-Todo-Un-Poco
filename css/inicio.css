@@ -43,11 +43,11 @@
 
 .ver-mas {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--text-light);
-  padding: 20px 40px;
+  padding: 16px 36px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   font-family: "SN Pro", sans-serif;
@@ -65,16 +65,14 @@
 }
 
 /* --- SECCIONES DE PRODUCTOS --- */
-#productos-destacados {
-  text-align: center;
-  scroll-margin-top: var(--header-offset);
-  padding: 40px 100px;
-}
-
+#productos-destacados,
 #productos-nuevos {
   text-align: center;
   scroll-margin-top: var(--header-offset);
-  padding: 40px 100px;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .btn-ver-productos {
@@ -84,8 +82,8 @@
   background-color: var(--btn-primary-bg);
   color: var(--btn-primary-text);
   border-radius: 10px;
-  margin: 60px auto 30px;
-  padding: 20px 40px;
+  margin: 40px auto 20px;
+  padding: 16px 32px;
   transition: all 0.2s ease;
 }
 
@@ -165,14 +163,15 @@
 
 .icono-fondo-categoria {
   background-color: var(--bg-secondary);
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   transition: all 0.2s ease-in-out;
+  margin-bottom: 12px;
 }
 
 .tarjeta-categoria:hover .icono-fondo-categoria {
@@ -180,8 +179,8 @@
 }
 
 .icono-fondo-categoria img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }
 
 .btn-ver-categorias {
@@ -199,6 +198,11 @@
   margin: 50px auto 10px;
   padding: 16px 36px;
   transition: all 0.2s ease;
+}
+
+.btn-ver-categorias:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
 }
 
 .btn-ver-categorias:hover {
@@ -239,7 +243,7 @@ body.dark-mode .btn-ver-categorias:hover {
 /* --- SECCIÓN QUIÉNES SOMOS --- */
 #desc-dtup {
   scroll-margin-top: var(--header-offset);
-  padding: 40px 80px;
+  padding: 50px 20px;
   text-align: center;
   background-color: var(--bg-secondary);
 }
