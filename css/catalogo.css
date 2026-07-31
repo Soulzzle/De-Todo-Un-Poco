@@ -211,12 +211,147 @@
   background: white;
 }
 
-.contenedor-ancho-catalogo .grilla-productos {
+.catalogo-contenido {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.contenedor-ancho-catalogo .grilla-productos {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 200px));
   gap: 20px;
   justify-content: start;
   margin: 0;
   padding: 0;
+}
+
+/* Estilos de Paginación */
+.paginacion-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 15px 0;
+}
+
+.paginacion-info {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.paginacion-controles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-paginacion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn-paginacion:hover:not(:disabled) {
+  background-color: var(--bg-secondary-hover);
+  border-color: var(--border-color-hover);
+}
+
+.btn-paginacion.active {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border-color: var(--btn-primary-bg);
+  font-weight: 700;
+}
+
+.btn-paginacion:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-paginacion-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 40px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* --- ADAPTACIÓN RESPONSIVA PARA CATÁLOGO --- */
+@media (max-width: 900px) {
+  .catalogo-header {
+    padding: 30px 20px;
+  }
+
+  .catalogo-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .catalogo-header p {
+    font-size: 1rem;
+  }
+
+  #catalogo-completo {
+    padding: 10px 0;
+  }
+
+  .contenedor-ancho-catalogo {
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 0 15px;
+    gap: 20px;
+  }
+
+  .filtros-sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .filtro-grupo {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+
+  .opciones-filtros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .opciones-filtros {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .btn-paginacion {
+    min-width: 34px;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 0.85rem;
+  }
 }

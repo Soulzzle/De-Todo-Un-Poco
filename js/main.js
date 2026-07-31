@@ -5,7 +5,11 @@ const urlGoogleSheet = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQd9-z8x
 const contenedor = document.getElementById('contenedor-productos');
 
 let todosLosProductos = [];
+let productosFiltradosActuales = [];
 let categoriaSeleccionada = null;
+
+const productosPorPagina = 12;
+let paginaActual = 1;
 
 async function cargarProductos() {
     if (!contenedor) {
@@ -125,7 +129,7 @@ function aplicarFiltros() {
 
     const categoriaActiva = categoriaSeleccionada ? normalizarTexto(categoriaSeleccionada) : null;
 
-    const productosFiltrados = todosLosProductos.filter(producto => {
+    productosFiltradosActuales = todosLosProductos.filter(producto => {
         // LÓGICA DE NEGOCIO: Si no tiene nombre, ignoramos la fila
         if (!producto.nombre || producto.nombre.trim() === "") {
             return false;
@@ -152,7 +156,6 @@ function aplicarFiltros() {
         }
 
         // 2. Filtro por Clasificaciones (Multi-selección)
-        // Lee directamente las columnas dedicadas del Excel: sinTacc (sintacc), sinAzucar (sinazucar), vegano
         if (clasificacionesActivas.length > 0) {
             const cumpleTodasClasificaciones = clasificacionesActivas.every(clasif => {
                 if (clasif.includes('tacc')) {
@@ -175,14 +178,21 @@ function aplicarFiltros() {
 
         // 3. Filtro por Categoría (Selección Única)
         if (categoriaActiva) {
-            let coincideCat = categoriaProdNorm === categoriaActiva ||
-                               categoriaProdNorm.includes(categoriaActiva) ||
-                               categoriaActiva.includes(categoriaProdNorm);
+            let coincideCat = categoriaProdNorm === categoriaActiva;
 
-            // Manejo especial de variaciones como "tes/infusiones" vs "tes e infusiones"
             if (!coincideCat) {
-                if (categoriaActiva.includes('tes') && categoriaProdNorm.includes('tes')) coincideCat = true;
-                if (categoriaActiva.includes('infus') && categoriaProdNorm.includes('infus')) coincideCat = true;
+                const palabrasActiva = categoriaActiva.split(/[\/\s,]+/).filter(p => p.length > 0);
+                const palabrasProd = categoriaProdNorm.split(/[\/\s,]+/).filter(p => p.length > 0);
+
+                coincideCat = palabrasActiva.some(pActiva =>
+                    palabrasProd.some(pProd => {
+                        if (pActiva === pProd) return true;
+                        if (pActiva.startsWith(pProd) || pProd.startsWith(pActiva)) {
+                            return Math.min(pActiva.length, pProd.length) >= 2;
+                        }
+                        return false;
+                    })
+                );
             }
 
             if (!coincideCat) return false;
@@ -191,7 +201,97 @@ function aplicarFiltros() {
         return true;
     });
 
-    renderizarProductos(productosFiltrados);
+    paginaActual = 1;
+    renderizarPaginaActual();
+}
+
+function renderizarPaginaActual() {
+    const totalProductos = productosFiltradosActuales.length;
+    const totalPaginas = Math.ceil(totalProductos / productosPorPagina) || 1;
+
+    if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+    if (paginaActual < 1) paginaActual = 1;
+
+    const inicio = (paginaActual - 1) * productosPorPagina;
+    const fin = Math.min(inicio + productosPorPagina, totalProductos);
+    const productosPagina = productosFiltradosActuales.slice(inicio, fin);
+
+    renderizarProductos(productosPagina);
+    renderizarPaginacion(totalPaginas, totalProductos, inicio, fin);
+}
+
+function renderizarPaginacion(totalPaginas, totalProductos, inicio, fin) {
+    const contenedorPaginacion = document.getElementById('contenedor-paginacion');
+    if (!contenedorPaginacion) return;
+
+    if (totalProductos === 0 || totalPaginas <= 1) {
+        contenedorPaginacion.innerHTML = '';
+        return;
+    }
+
+    let html = `
+        <p class="paginacion-info">Mostrando ${inicio + 1} - ${fin} de ${totalProductos} productos</p>
+        <div class="paginacion-controles">
+            <button type="button" class="btn-paginacion" id="btn-prev-page" ${paginaActual === 1 ? 'disabled' : ''}>
+                &laquo; Anterior
+            </button>
+    `;
+
+    for (let i = 1; i <= totalPaginas; i++) {
+        if (
+            i === 1 ||
+            i === totalPaginas ||
+            (i >= paginaActual - 1 && i <= paginaActual + 1)
+        ) {
+            html += `
+                <button type="button" class="btn-paginacion btn-num-page ${i === paginaActual ? 'active' : ''}" data-page="${i}">
+                    ${i}
+                </button>
+            `;
+        } else if (
+            (i === paginaActual - 2 && i > 1) ||
+            (i === paginaActual + 2 && i < totalPaginas)
+        ) {
+            html += `<span class="btn-paginacion-dots">...</span>`;
+        }
+    }
+
+    html += `
+            <button type="button" class="btn-paginacion" id="btn-next-page" ${paginaActual === totalPaginas ? 'disabled' : ''}>
+                Siguiente &raquo;
+            </button>
+        </div>
+    `;
+
+    contenedorPaginacion.innerHTML = html;
+
+    const btnPrev = document.getElementById('btn-prev-page');
+    if (btnPrev) {
+        btnPrev.addEventListener('click', () => cambiarPagina(paginaActual - 1));
+    }
+
+    const btnNext = document.getElementById('btn-next-page');
+    if (btnNext) {
+        btnNext.addEventListener('click', () => cambiarPagina(paginaActual + 1));
+    }
+
+    const btnsPage = contenedorPaginacion.querySelectorAll('.btn-num-page');
+    btnsPage.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const pageNum = parseInt(this.getAttribute('data-page'), 10);
+            if (pageNum) cambiarPagina(pageNum);
+        });
+    });
+}
+
+function cambiarPagina(nuevaPagina) {
+    paginaActual = nuevaPagina;
+    renderizarPaginaActual();
+
+    const seccionCatalogo = document.getElementById('catalogo-completo');
+    if (seccionCatalogo) {
+        seccionCatalogo.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 function generarTagsHTML(producto) {
