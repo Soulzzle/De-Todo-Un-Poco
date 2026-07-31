@@ -129,31 +129,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
   text-decoration: none;
   text-align: center;
   box-sizing: border-box;
-  font-weight: bold;
-  background-color: var(--btn-primary-bg);
-  border: 1px solid var(--border-color-strong);
-  color: var(--btn-primary-text);
-  border-radius: 10px;
+  font-weight: 700;
+  background-color: #25d366;
+  border: none;
+  color: #ffffff;
+  border-radius: 12px;
   padding: 16px 30px;
-  font-size: 16px;
+  font-size: 1.05rem;
   font-family: "Roboto", sans-serif;
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
 }
 
 .btn-consultar-ws .icono-ws {
   width: 24px;
   height: 24px;
   object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .btn-consultar-ws:hover {
-  background-color: var(--btn-primary-hover);
-  transform: scale(1.02);
+  background-color: #1fbd59;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+.btn-consultar-ws:active {
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
