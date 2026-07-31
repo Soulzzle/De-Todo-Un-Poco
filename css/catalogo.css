@@ -341,6 +341,16 @@
   font-weight: 700;
 }
 
+/* --- REGLA ESTRICTA PARA ESCRITORIO (PC > 900px) --- */
+@media (min-width: 901px) {
+  .btn-toggle-filtros {
+    display: none !important;
+  }
+  .panel-filtros-desplegable {
+    display: block !important;
+  }
+}
+
 /* --- ADAPTACIÓN RESPONSIVA PARA CATÁLOGO --- */
 @media (max-width: 900px) {
   .catalogo-header {
