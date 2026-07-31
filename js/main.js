@@ -329,7 +329,6 @@ function cambiarPagina(nuevaPagina) {
     if (seccionCatalogo) {
         seccionCatalogo.scrollIntoView({ behavior: 'smooth' });
     }
->>>>>>> ad04013a83fd99d74e5a76a263b7fa22e6742580
 }
 
 function generarTagsHTML(producto) {
