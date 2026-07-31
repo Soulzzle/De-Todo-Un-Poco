@@ -18,10 +18,19 @@
 
   <header class="encabezado">
     <div class="encabezado-inner">
-      <nav class="menu">
-        <a href="../index.html" class="logo-principal">
-          <img src="../images/cartel-dtup.png" alt="Logo de De Todo Un Poco">
-        </a>
+      <button class="btn-hamburguesa" id="btn-hamburguesa" aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="../index.html" class="logo-principal">
+        <img src="../images/cartel-dtup.png" alt="Logo de De Todo Un Poco">
+      </a>
+      <nav class="menu" id="menu-navegacion">
+        <div class="drawer-header">
+          <img src="../images/cartel-dtup.png" alt="Logo De Todo Un Poco" class="drawer-logo">
+          <button class="btn-cerrar-drawer" id="btn-cerrar-drawer" aria-label="Cerrar menú">&times;</button>
+        </div>
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="productos.html">Productos</a></li>
@@ -32,6 +41,7 @@
       <button class="btn-dark-mode" aria-label="Cambiar tema"></button>
     </div>
   </header>
+  <div class="menu-overlay" id="menu-overlay"></div>
 
   <main>
     <section class="catalogo-header">
@@ -45,62 +55,121 @@
       <div class="contenedor-ancho-catalogo">
 
         <aside class="filtros-sidebar">
-          <div class="filtro-grupo">
+          <div class="filtro-grupo grupo-busqueda">
             <h3>Buscar</h3>
             <div class="busqueda-wrapper">
               <input type="search" placeholder="Ej: Almendras..." id="busqueda-productos">
             </div>
+            <button type="button" class="btn-toggle-filtros" id="btn-toggle-filtros" aria-expanded="false">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+              <span>Filtros y Categorías</span>
+              <span class="badge-filtros-activos" id="badge-filtros-activos" style="display: none;">0</span>
+            </button>
           </div>
 
-          <div class="filtro-grupo">
-            <h3>Clasificaciones</h3>
-            <div class="opciones-filtros">
-              <label class="control-checkbox">
-                Sin TACC
-                <input type="checkbox" name="clasificacion" value="Sin TACC">
-                <span class="control-indicator"></span>
-              </label>
-              <label class="control-checkbox">
-                Sin Azúcar
-                <input type="checkbox" name="clasificacion" value="Sin Azúcar">
-                <span class="control-indicator"></span>
-              </label>
-              <label class="control-checkbox">
-                Vegano
-                <input type="checkbox" name="clasificacion" value="Vegano">
-                <span class="control-indicator"></span>
-              </label>
+          <div class="panel-filtros-desplegable" id="panel-filtros-desplegable">
+            <div class="filtro-grupo">
+              <h3>Clasificaciones</h3>
+              <div class="opciones-filtros">
+                <label class="control-checkbox">
+                  Sin TACC
+                  <input type="checkbox" name="clasificacion" value="Sin TACC">
+                  <span class="control-indicator"></span>
+                </label>
+                <label class="control-checkbox">
+                  Sin Azúcar
+                  <input type="checkbox" name="clasificacion" value="Sin Azúcar">
+                  <span class="control-indicator"></span>
+                </label>
+                <label class="control-checkbox">
+                  Vegano
+                  <input type="checkbox" name="clasificacion" value="Vegano">
+                  <span class="control-indicator"></span>
+                </label>
+              </div>
             </div>
-          </div>
 
-          <div class="filtro-grupo">
-            <h3>Categorías</h3>
-            <div class="opciones-filtros">
-              <label class="control-radio">
-                Repostería
-                <input type="radio" name="categoria" value="Repostería">
-                <span class="control-indicator-radio"></span>
-              </label>
-              <label class="control-radio">
-                Congelados
-                <input type="radio" name="categoria" value="Congelados">
-                <span class="control-indicator-radio"></span>
-              </label>
-              <label class="control-radio">
-                Semillas
-                <input type="radio" name="categoria" value="Semillas">
-                <span class="control-indicator-radio"></span>
-              </label>
-              <label class="control-radio">
-                Tés/Infusiones
-                <input type="radio" name="categoria" value="Tés/Infusiones">
-                <span class="control-indicator-radio"></span>
-              </label>
-              <label class="control-radio">
-                Frutos Secos
-                <input type="radio" name="categoria" value="Frutos Secos">
-                <span class="control-indicator-radio"></span>
-              </label>
+            <div class="filtro-grupo">
+              <h3>Categorías</h3>
+              <div class="opciones-filtros">
+                <label class="control-radio">
+                  Condimentos
+                  <input type="radio" name="categoria" value="Condimentos">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Suplementos
+                  <input type="radio" name="categoria" value="Suplementos">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Harinas
+                  <input type="radio" name="categoria" value="Harinas">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Conservas
+                  <input type="radio" name="categoria" value="Conservas">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Dulces
+                  <input type="radio" name="categoria" value="Dulces">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Chocolates
+                  <input type="radio" name="categoria" value="Chocolates">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Repostería
+                  <input type="radio" name="categoria" value="Repostería">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Congelados
+                  <input type="radio" name="categoria" value="Congelados">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Semillas
+                  <input type="radio" name="categoria" value="Semillas">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Tés/Infusiones
+                  <input type="radio" name="categoria" value="Tés/Infusiones">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Frutos Secos
+                  <input type="radio" name="categoria" value="Frutos Secos">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Aceites
+                  <input type="radio" name="categoria" value="Aceites">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Salsas
+                  <input type="radio" name="categoria" value="Salsas">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Levaduras
+                  <input type="radio" name="categoria" value="Levaduras">
+                  <span class="control-indicator-radio"></span>
+                </label>
+                <label class="control-radio">
+                  Snacks
+                  <input type="radio" name="categoria" value="Snacks">
+                  <span class="control-indicator-radio"></span>
+                </label>
+              </div>
             </div>
           </div>
         </aside>

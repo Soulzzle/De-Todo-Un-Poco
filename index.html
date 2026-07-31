@@ -17,10 +17,19 @@
 <body>
   <header class="encabezado">
     <div class="encabezado-inner">
-      <nav class="menu">
-        <a href="index.html" class="logo-principal">
-          <img src="images/cartel-dtup.png" alt="Logo de De Todo Un Poco">
-        </a>
+      <button class="btn-hamburguesa" id="btn-hamburguesa" aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="index.html" class="logo-principal">
+        <img src="images/cartel-dtup.png" alt="Logo de De Todo Un Poco">
+      </a>
+      <nav class="menu" id="menu-navegacion">
+        <div class="drawer-header">
+          <img src="images/cartel-dtup.png" alt="Logo De Todo Un Poco" class="drawer-logo">
+          <button class="btn-cerrar-drawer" id="btn-cerrar-drawer" aria-label="Cerrar menú">&times;</button>
+        </div>
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="pages/productos.html">Productos</a></li>
@@ -31,6 +40,7 @@
       <button class="btn-dark-mode" aria-label="Cambiar tema"></button>
     </div>
   </header>
+  <div class="menu-overlay" id="menu-overlay"></div>
   <main>
     <section class="banner">
       <h1>DE TODO UN POCO</h1>

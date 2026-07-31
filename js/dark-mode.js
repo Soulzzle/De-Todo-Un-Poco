@@ -60,9 +60,51 @@
         aplicarTema(temaGuardado);
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', inicializarTema);
-    } else {
+    function inicializarMenuMobile() {
+        const btnOpen = document.getElementById('btn-hamburguesa');
+        const btnClose = document.getElementById('btn-cerrar-drawer');
+        const menu = document.getElementById('menu-navegacion');
+        const overlay = document.getElementById('menu-overlay');
+
+        if (!btnOpen || !menu) return;
+
+        function abrirMenu() {
+            menu.classList.add('open');
+            if (overlay) overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarMenu() {
+            menu.classList.remove('open');
+            if (overlay) overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        btnOpen.addEventListener('click', abrirMenu);
+        if (btnClose) btnClose.addEventListener('click', cerrarMenu);
+        if (overlay) overlay.addEventListener('click', cerrarMenu);
+
+        const enlacesMenu = menu.querySelectorAll('a');
+        enlacesMenu.forEach(enlace => {
+            enlace.addEventListener('click', () => {
+                const href = enlace.getAttribute('href') || '';
+                if (href.startsWith('#')) {
+                    cerrarMenu();
+                } else {
+                    setTimeout(cerrarMenu, 150);
+                }
+            });
+        });
+    }
+
+    function inicializarTodo() {
         inicializarTema();
+        inicializarMenuMobile();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', inicializarTodo);
+    } else {
+        inicializarTodo();
     }
 })();

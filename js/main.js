@@ -92,8 +92,44 @@ function inicializarFiltros() {
         });
     });
 
+    inicializarToggleFiltrosMobile();
+
     // Cargar filtros especificados en los parámetros de la URL
     leerParametrosURL();
+}
+
+function inicializarToggleFiltrosMobile() {
+    const btnToggle = document.getElementById('btn-toggle-filtros');
+    const panel = document.getElementById('panel-filtros-desplegable');
+
+    if (!btnToggle || !panel) return;
+
+    btnToggle.addEventListener('click', function () {
+        const estaAbierto = panel.classList.contains('active');
+        if (estaAbierto) {
+            panel.classList.remove('active');
+            btnToggle.setAttribute('aria-expanded', 'false');
+        } else {
+            panel.classList.add('active');
+            btnToggle.setAttribute('aria-expanded', 'true');
+        }
+    });
+}
+
+function actualizarBadgeFiltros() {
+    const badge = document.getElementById('badge-filtros-activos');
+    if (!badge) return;
+
+    const numClasif = document.querySelectorAll('input[name="clasificacion"]:checked').length;
+    const numCat = categoriaSeleccionada ? 1 : 0;
+    const totalActivos = numClasif + numCat;
+
+    if (totalActivos > 0) {
+        badge.textContent = totalActivos;
+        badge.style.display = 'inline-flex';
+    } else {
+        badge.style.display = 'none';
+    }
 }
 
 // Función auxiliar para normalizar texto (quitar acentos, pasar a minúsculas)
@@ -125,7 +161,7 @@ function aplicarFiltros() {
 
     const categoriaActiva = categoriaSeleccionada ? normalizarTexto(categoriaSeleccionada) : null;
 
-    const productosFiltrados = todosLosProductos.filter(producto => {
+    productosFiltradosActuales = todosLosProductos.filter(producto => {
         // LÓGICA DE NEGOCIO: Si no tiene nombre, ignoramos la fila
         if (!producto.nombre || producto.nombre.trim() === "") {
             return false;
@@ -191,7 +227,9 @@ function aplicarFiltros() {
         return true;
     });
 
-    renderizarProductos(productosFiltrados);
+    actualizarBadgeFiltros();
+    paginaActual = 1;
+    renderizarPaginaActual();
 }
 
 function generarTagsHTML(producto) {
