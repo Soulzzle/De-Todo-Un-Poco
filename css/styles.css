@@ -123,8 +123,8 @@ ul {
 }
 
 body h2 {
-  font-size: 40px;
-  margin: 30px 0px 60px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: 30px 0px 40px;
   font-family: "Roboto Slab", serif;
   color: var(--text-primary);
 }
@@ -146,16 +146,19 @@ body h2 {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 15px;
 }
 
 .menu {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .logo-principal {
   width: 150px;
+  flex-shrink: 0;
 }
 
 .logo-principal img {
@@ -166,15 +169,15 @@ body h2 {
 .menu ul {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .menu li {
-  padding: 10px 0px;
   font-family: "Roboto", sans-serif;
   font-weight: 450;
   transition: background-color 0.1s;
   border-radius: 10px;
-  margin-inline: 2px;
 }
 
 .menu li:hover {
@@ -184,7 +187,48 @@ body h2 {
 .menu a {
   color: var(--text-primary);
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 8px 12px;
+  display: inline-block;
+  font-size: 15px;
+}
+
+/* Adaptación del menú para pantallas pequeñas */
+@media (max-width: 768px) {
+  .encabezado {
+    padding: 10px 15px;
+  }
+
+  .encabezado-inner {
+    flex-wrap: wrap;
+  }
+
+  .logo-principal {
+    width: 120px;
+  }
+
+  .menu a {
+    padding: 6px 8px;
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .encabezado-inner {
+    gap: 8px;
+  }
+
+  .logo-principal {
+    width: 100px;
+  }
+
+  .menu ul {
+    gap: 2px;
+  }
+
+  .menu a {
+    padding: 5px 6px;
+    font-size: 12.5px;
+  }
 }
 
 /* --- BOTÓN DE MODO OSCURO (INTERRUPTOR HORIZONTAL CON SOL Y LUNA) --- */
@@ -285,7 +329,7 @@ body.dark-mode .icon-moon {
   gap: 12px;
   justify-content: center;
   background-color: var(--bg-secondary);
-  padding: 40px 80px;
+  padding: 40px 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   transition: background-color 0.25s ease;
@@ -295,9 +339,10 @@ body.dark-mode .icon-moon {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .menu-footer a {
@@ -353,7 +398,8 @@ body.dark-mode .icon-moon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
+  text-align: center;
 }
 
 .logo-footer p {
@@ -369,9 +415,20 @@ body.dark-mode .icon-moon {
   margin: 10px;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
+  #pie-pagina {
+    padding: 30px 15px;
+  }
+
   .footer-inner {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .item-footer {
+    justify-content: center;
   }
 }
 
@@ -379,20 +436,17 @@ body.dark-mode .icon-moon {
 .grilla-productos {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(5, 200px);
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   justify-content: center;
   gap: 20px;
-}
-
-@media (max-width: 1140px) {
-  .grilla-productos {
-    grid-template-columns: repeat(2, 200px);
-  }
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 480px) {
   .grilla-productos {
-    grid-template-columns: repeat(1, minmax(200px, 300px));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
   }
 }
 

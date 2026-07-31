@@ -297,3 +297,61 @@
   color: var(--text-muted);
   font-weight: 700;
 }
+
+/* --- ADAPTACIÓN RESPONSIVA PARA CATÁLOGO --- */
+@media (max-width: 900px) {
+  .catalogo-header {
+    padding: 30px 20px;
+  }
+
+  .catalogo-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .catalogo-header p {
+    font-size: 1rem;
+  }
+
+  #catalogo-completo {
+    padding: 10px 0;
+  }
+
+  .contenedor-ancho-catalogo {
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 0 15px;
+    gap: 20px;
+  }
+
+  .filtros-sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .filtro-grupo {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+
+  .opciones-filtros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .opciones-filtros {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .btn-paginacion {
+    min-width: 34px;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 0.85rem;
+  }
+}
