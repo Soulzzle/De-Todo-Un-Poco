@@ -99,11 +99,11 @@
         enlacesMenu.forEach(enlace => {
             enlace.addEventListener('click', () => {
                 const href = enlace.getAttribute('href') || '';
-                if (href.startsWith('#')) {
+                // Si es un ancla a la misma pagina, cerramos el menu para que se vea el desplazamiento
+                if (href.includes('#')) {
                     cerrarMenu();
-                } else {
-                    setTimeout(cerrarMenu, 150);
                 }
+                // Para enlaces a otras paginas, dejamos que el navegador navegue naturalmente
             });
         });
     }

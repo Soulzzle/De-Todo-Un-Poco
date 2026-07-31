@@ -3,9 +3,9 @@
    ========================================== */
 
 /* --- 1. IMPORTACIÓN DE ARCHIVOS CSS MODULARES --- */
-@import url('inicio.css');
-@import url('catalogo.css');
-@import url('detalle.css');
+@import url('inicio.css?v=1.0.5');
+@import url('catalogo.css?v=1.0.5');
+@import url('detalle.css?v=1.0.5');
 
 /* --- 2. VARIABLES GLOBALES (Custom Properties para Dark Mode) --- */
 :root {
