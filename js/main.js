@@ -108,7 +108,8 @@ function inicializarToggleFiltrosMobile() {
 
     if (!btnToggle || !panel) return;
 
-    btnToggle.addEventListener('click', function () {
+    function togglePanel(e) {
+        if (e && e.cancelable) e.preventDefault();
         const estaAbierto = panel.classList.contains('active');
         if (estaAbierto) {
             panel.classList.remove('active');
@@ -117,7 +118,10 @@ function inicializarToggleFiltrosMobile() {
             panel.classList.add('active');
             btnToggle.setAttribute('aria-expanded', 'true');
         }
-    });
+    }
+
+    btnToggle.addEventListener('click', togglePanel);
+    btnToggle.addEventListener('touchstart', togglePanel, { passive: false });
 }
 
 function actualizarBadgeFiltros() {
@@ -423,6 +427,12 @@ function csvToJson(csv) {
         resultado.push(obj);
     }
     return resultado;
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inicializarToggleFiltrosMobile);
+} else {
+    inicializarToggleFiltrosMobile();
 }
 
 // Ejecutar al cargar la página

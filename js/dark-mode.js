@@ -68,21 +68,32 @@
 
         if (!btnOpen || !menu) return;
 
-        function abrirMenu() {
+        function abrirMenu(e) {
+            if (e && e.cancelable) e.preventDefault();
             menu.classList.add('open');
             if (overlay) overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
 
-        function cerrarMenu() {
+        function cerrarMenu(e) {
+            if (e && e.cancelable) e.preventDefault();
             menu.classList.remove('open');
             if (overlay) overlay.classList.remove('open');
             document.body.style.overflow = '';
         }
 
         btnOpen.addEventListener('click', abrirMenu);
-        if (btnClose) btnClose.addEventListener('click', cerrarMenu);
-        if (overlay) overlay.addEventListener('click', cerrarMenu);
+        btnOpen.addEventListener('touchstart', abrirMenu, { passive: false });
+
+        if (btnClose) {
+            btnClose.addEventListener('click', cerrarMenu);
+            btnClose.addEventListener('touchstart', cerrarMenu, { passive: false });
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', cerrarMenu);
+            overlay.addEventListener('touchstart', cerrarMenu, { passive: false });
+        }
 
         const enlacesMenu = menu.querySelectorAll('a');
         enlacesMenu.forEach(enlace => {
