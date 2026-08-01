@@ -96,8 +96,6 @@ function inicializarFiltros() {
         });
     });
 
-    inicializarToggleFiltrosMobile();
-
     // Cargar filtros especificados en los parámetros de la URL
     leerParametrosURL();
 }
