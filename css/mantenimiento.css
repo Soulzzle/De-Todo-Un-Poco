@@ -1,0 +1,310 @@
+/* ==========================================
+   ESTILOS DE LA PÁGINA DE MANTENIMIENTO (mantenimiento.css)
+   ========================================== */
+
+/* --- ENCABEZADO CENTRADO EXCLUSIVO --- */
+.encabezado .encabezado-inner {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#logo-mantenimiento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  margin: 0 auto;
+}
+
+#logo-mantenimiento img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.mantenimiento-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  min-height: calc(100vh - 80px - 260px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo decorativo con gradientes sutiles */
+.mantenimiento-main::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(144, 180, 140, 0.14) 0%, rgba(241, 237, 228, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mantenimiento-container {
+  max-width: 820px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* Tarjeta principal */
+.mantenimiento-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 48px 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Badge de estado */
+.mantenimiento-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color);
+}
+
+.mantenimiento-badge-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #e67e22;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulso-mantenimiento 2s infinite ease-in-out;
+}
+
+@keyframes pulso-mantenimiento {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.7);
+  }
+
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(230, 126, 34, 0);
+  }
+
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(230, 126, 34, 0);
+  }
+}
+
+/* Icono central de mantenimiento */
+.mantenimiento-icon-wrapper {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  transition: transform 0.3s ease, border-color 0.25s ease;
+}
+
+.mantenimiento-icon-wrapper svg {
+  width: 46px;
+  height: 46px;
+  stroke: currentColor;
+}
+
+.mantenimiento-icon-wrapper:hover {
+  transform: rotate(15deg) scale(1.05);
+}
+
+/* Título */
+.mantenimiento-titulo {
+  font-family: "Roboto Slab", serif;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  color: var(--text-primary);
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+/* Subtítulo y texto descriptivo */
+.mantenimiento-descripcion {
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-muted);
+  max-width: 640px;
+  line-height: 1.6;
+  margin: 0 auto 32px auto;
+}
+
+/* Grilla de novedades/puntos informativos */
+.mantenimiento-puntos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.mantenimiento-punto {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 18px 20px;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.mantenimiento-punto:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-color-hover);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.punto-icono {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.punto-contenido h3 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.punto-contenido p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Aviso de local físico */
+.mantenimiento-local-aviso {
+  background-color: var(--bg-secondary);
+  border-left: 4px solid #2e7d32;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.local-aviso-icono {
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.local-aviso-texto h4 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.local-aviso-texto p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Botones de acción */
+.mantenimiento-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-mantenimiento-primario {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.btn-mantenimiento-primario:hover {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  color: var(--btn-primary-text);
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .mantenimiento-main {
+    padding: 30px 16px;
+  }
+
+  .mantenimiento-card {
+    padding: 28px 18px;
+    border-radius: 18px;
+  }
+
+  .mantenimiento-puntos {
+    grid-template-columns: 1fr;
+  }
+
+  .mantenimiento-acciones {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-mantenimiento-primario {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .mantenimiento-local-aviso {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 8px;
+  }
+}

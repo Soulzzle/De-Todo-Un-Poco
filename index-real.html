@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>De Todo Un Poco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/styles.css?v=1.0.7">
+</head>
+
+<body>
+  <header class="encabezado">
+    <div class="encabezado-inner">
+      <button class="btn-hamburguesa" id="btn-hamburguesa" aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="index.html" class="logo-principal">
+        <img src="images/cartel-dtup.png" alt="Logo de De Todo Un Poco">
+      </a>
+      <nav class="menu" id="menu-navegacion">
+        <div class="drawer-header">
+          <img src="images/cartel-dtup.png" alt="Logo De Todo Un Poco" class="drawer-logo">
+          <button class="btn-cerrar-drawer" id="btn-cerrar-drawer" aria-label="Cerrar menú">&times;</button>
+        </div>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="pages/productos.html">Productos</a></li>
+          <li><a href="#desc-dtup">Quiénes Somos</a></li>
+          <li><a href="#pie-pagina">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="btn-dark-mode" aria-label="Cambiar tema"></button>
+    </div>
+  </header>
+  <div class="menu-overlay" id="menu-overlay"></div>
+  <main>
+    <section class="banner">
+      <h1>DE TODO UN POCO</h1>
+      <h2>Almacén y dietética</h2>
+      <a href="#productos-destacados" class="ver-mas">Ver más</a>
+    </section>
+    <section id="productos-destacados">
+      <h2>Productos Destacados</h2>
+      <ul class="grilla-productos" id="contenedor-destacados">
+        <p class="mensaje-cargando">Cargando productos...</p>
+      </ul>
+      <div><a href="pages/productos.html" class="btn-ver-productos">Ver todos los productos &rarr;</a></div>
+    </section>
+    <section id="categorias">
+      <h2>Categorías</h2>
+      <ul class="grilla-categorias">
+        <li>
+          <a href="pages/productos.html?clasificacion=Sin TACC" class="tarjeta-categoria">
+            <div class="icono-fondo-categoria">
+              <img src="images/sin-tacc-icon.png" alt="Sin TACC" loading="lazy">
+            </div>
+            <h3>Sin TACC</h3>
+            <p>Productos libres de gluten certificados para celíacos.</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/productos.html?clasificacion=Sin Azúcar" class="tarjeta-categoria">
+            <div class="icono-fondo-categoria">
+              <img src="images/sin-azucares-icon.png" alt="Sin Azúcares" loading="lazy">
+            </div>
+            <h3>Sin Azúcares</h3>
+            <p>Opciones saludables sin azúcar agregada.</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/productos.html?clasificacion=Vegano" class="tarjeta-categoria">
+            <div class="icono-fondo-categoria">
+              <img src="images/saludables-icon.png" alt="Vegano" loading="lazy">
+            </div>
+            <h3>Vegano</h3>
+            <p>Alimentos 100% de origen vegetal y nutritivos.</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/productos.html?categoria=Repostería" class="tarjeta-categoria">
+            <div class="icono-fondo-categoria">
+              <img src="images/reposteria-icon.png" alt="Repostería" loading="lazy">
+            </div>
+            <h3>Repostería</h3>
+            <p>Insumos e ingredientes saludables para tus recetas.</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/productos.html?categoria=Congelados" class="tarjeta-categoria">
+            <div class="icono-fondo-categoria">
+              <img src="images/congelados-icon.png" alt="Congelados" loading="lazy">
+            </div>
+            <h3>Congelados</h3>
+            <p>Viandas, verduras y alimentos congelados prácticos.</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/productos.html?categoria=Semillas" class="tarjeta-categoria">
+            <div class="icono-fondo-categoria">
+              <img src="images/semillas-icon.png" alt="Semillas" loading="lazy">
+            </div>
+            <h3>Semillas</h3>
+            <p>Chía, lino, sésamo, girasol y muchísimas más fuentes de fibra.</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/productos.html?categoria=Tés/Infusiones" class="tarjeta-categoria">
+            <div class="icono-fondo-categoria">
+              <img src="images/tes-infusiones-icon.png" alt="Tés e Infusiones" loading="lazy">
+            </div>
+            <h3>Tés e Infusiones</h3>
+            <p>Gran variedad de hebras, hierbas e infusiones naturales.</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/productos.html?categoria=Frutos Secos" class="tarjeta-categoria">
+            <div class="icono-fondo-categoria">
+              <img src="images/frutos-secos-icon.png" alt="Frutos Secos" loading="lazy">
+            </div>
+            <h3>Frutos Secos</h3>
+            <p>Nueces, almendras, castañas y más mixes nutritivos.</p>
+          </a>
+        </li>
+      </ul>
+      <div><a href="pages/productos.html" class="btn-ver-categorias">Ver todas las categorías</a></div>
+    </section>
+    <section id="productos-nuevos">
+      <h2>Productos Nuevos</h2>
+      <ul class="grilla-productos" id="contenedor-nuevos">
+        <p class="mensaje-cargando">Cargando productos...</p>
+      </ul>
+      <div><a href="pages/productos.html" class="btn-ver-productos">Ver todos los productos &rarr;</a></div>
+    </section>
+    <section id="desc-dtup">
+      <div id="desc-dtup-inner">
+        <h2>¿Quiénes somos?</h2>
+        <p>Somos un almacén y dietética donde la prioridad es la calidad y la
+          diversidad de nuestra mercadería. <br>En <strong>De Todo Un Poco</strong>, te ofrecemos una amplia variedad de
+          productos para que puedas encontrar
+          todo lo que buscás en un solo lugar.</p><br>
+        <p>Nos especializamos en productos sin TACC, sin azúcar, cereales, condimentos, semillas y frutos secos, entre
+          muchas otras opciones. Nuestro objetivo es proporcionarte opciones saludables y de buena calidad que te sirvan
+          para tu bienestar.</p>
+        <h3>Por qué elegirnos:</h3>
+        <ul class="lista-beneficios">
+          <li>
+            <strong>✅ Compromiso y Transparencia:</strong> Nos esforzamos por ser tu lugar de confianza, aclarandote
+            siempre cada producto y teniendo un trato cercano en cada compra.
+          </li>
+          <li>
+            <strong>🌱 Calidad:</strong> Trabajamos con proveedores de confianza y renombre para garantizarte la mejor
+            calidad.
+          </li>
+          <li>
+            <strong>💚 Higiene y Cuidado:</strong> Nos preocupamos por la higiene y el cuidado de todos nuestros
+            productos, asegurando que te lleguen en las mejores condiciones.
+          </li>
+          <li>
+            <strong>📦 Variedad Real:</strong> Olvidate de dar vueltas. Encontrá productos de más de 16 categorías,
+            todo en un solo lugar.
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class="separador">
+      <div></div>
+    </div>
+  </main>
+
+  <footer id="pie-pagina">
+    <div class="footer-inner">
+      <div class="menu-footer">
+        <h3>Categorías</h3>
+        <nav>
+          <ul>
+            <li class="item-footer"><a href="index.html">Inicio</a></li>
+            <li class="item-footer"><a href="pages/productos.html">Productos</a></li>
+            <li class="item-footer"><a href="#desc-dtup">Quiénes Somos</a></li>
+            <li class="item-footer"><a href="#pie-pagina">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="contactos">
+        <h3>Contactános</h3>
+        <ul>
+          <li class="item-footer">
+            <img src="images/whap-contacto.png" alt="WhatsApp" loading="lazy">
+            <a href="#">WhatsApp</a>
+          </li>
+          <li class="item-footer">
+            <img src="images/tel-contacto.png" alt="Teléfono" loading="lazy">
+            <a href="#">Teléfono</a>
+          </li>
+          <li class="item-footer">
+            <img src="images/email-contacto.png" alt="Email" loading="lazy">
+            <a href="#">Email</a>
+          </li>
+          <li class="item-footer">
+            <img src="images/mapa-contacto.png" alt="Mapa" loading="lazy">
+            <a href="https://maps.app.goo.gl/Je3asyAWKTwyVbgQ8" target="_blank">Irigoyen 386, San Antonio de Areco</a>
+          </li>
+        </ul>
+      </div>
+      <div class="logo-footer">
+        <img src="images/logo.png" alt="Logo de De Todo Un Poco" loading="lazy">
+        <p>Copyright &copy; 2026 - De Todo Un Poco - Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/dark-mode.js"></script>
+  <script src="js/inicio.js"></script>
+</body>
+
+</html>
